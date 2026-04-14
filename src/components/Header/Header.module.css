@@ -1,0 +1,223 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  z-index: 100;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom-color: var(--color-border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.scrolled .logo {
+  color: var(--color-accent);
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.navLink {
+  position: relative;
+  font-size: 0.938rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition);
+  padding: 6px 0;
+}
+
+.navLink:hover {
+  color: #fff;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
+}
+
+.navLinkActive {
+  color: #fff;
+}
+
+.navLinkActive::after {
+  transform: scaleX(1);
+}
+
+.scrolled .navLink {
+  color: var(--color-text-light);
+}
+
+.scrolled .navLink:hover {
+  color: var(--color-text);
+}
+
+.scrolled .navLinkActive {
+  color: var(--color-accent);
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.938rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.scrolled .phone {
+  color: var(--color-text);
+}
+
+.phoneIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  transition: color 0.3s ease, background 0.3s ease, transform var(--transition);
+}
+
+.socialLink:hover {
+  transform: translateY(-1px);
+  color: var(--color-accent);
+}
+
+.scrolled .socialLink {
+  color: var(--color-text);
+}
+
+.scrolled .socialLink:hover {
+  color: var(--color-accent);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: 4px;
+}
+
+.burgerLine {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition), background 0.3s ease;
+}
+
+.scrolled .burgerLine {
+  background: var(--color-text);
+}
+
+.burgerOpen .burgerLine:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burgerOpen .burgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerOpen .burgerLine:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    gap: 20px;
+    border-bottom: 1px solid var(--color-border);
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav .navLink {
+    color: var(--color-text-light);
+  }
+
+  .nav .navLink:hover {
+    color: var(--color-text);
+  }
+
+  .nav .navLinkActive {
+    color: var(--color-accent);
+  }
+
+  .navOpen {
+    transform: translateY(0);
+  }
+
+  .phone {
+    display: none;
+  }
+
+  .contacts {
+    gap: 8px;
+  }
+
+  .social {
+    gap: 4px;
+  }
+
+  .burger {
+    display: flex;
+  }
+}

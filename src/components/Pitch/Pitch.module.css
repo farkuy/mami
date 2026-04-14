@@ -1,0 +1,158 @@
+.pitch {
+  padding: 96px 0;
+  background: #fff;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.lead {
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: #111827;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 24px;
+}
+
+.body {
+  font-size: 1.063rem;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 48px;
+}
+
+.perksWrap {
+  max-width: 1100px;
+  margin: 0 auto 56px;
+  padding: 0 20px;
+}
+
+.perks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.perk {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  text-align: center;
+}
+
+.perkIcon {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #396053;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perkIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.perkTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 6px;
+}
+
+.perkText {
+  font-size: 0.969rem;
+  line-height: 1.55;
+  color: #4b5563;
+  margin: 0;
+  max-width: 260px;
+}
+
+.quote {
+  margin: 0 0 32px;
+  padding: 28px 32px;
+  border-left: 4px solid #396053;
+  background: #f8f9fa;
+  border-radius: 0 12px 12px 0;
+}
+
+.quote blockquote {
+  margin: 0 0 12px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: #1f2937;
+}
+
+.quote figcaption {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.outro {
+  font-size: 1.063rem;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.signature {
+  font-size: 1rem;
+  color: #111827;
+  font-weight: 600;
+  margin-bottom: 36px;
+}
+
+.cta {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.cta:hover {
+  background: #396053;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .perks {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pitch {
+    padding: 64px 0;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+  }
+
+  .quote {
+    padding: 20px 22px;
+  }
+
+  .quote blockquote {
+    font-size: 1rem;
+  }
+}
