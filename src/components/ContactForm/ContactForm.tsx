@@ -1,4 +1,5 @@
 import { type FormEvent, useState } from 'react';
+import Button from '../ui/Button/Button';
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
@@ -37,9 +38,9 @@ export default function ContactForm() {
                 className={styles.textarea}
                 placeholder="Расскажите, что вас интересует"
               />
-              <button type="submit" className={`btn btn-accent ${styles.submit}`}>
+              <Button type="submit" variant="accent" fullWidth className={styles.submit}>
                 Отправить заявку
-              </button>
+              </Button>
             </form>
           )}
         </div>

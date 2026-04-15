@@ -8,5 +8,4 @@ export const navItems: NavItem[] = [
   { label: 'Услуги', to: '/about' },
   { label: 'Отзывы', to: '/reviews' },
   { label: 'Оплата', to: '/payment' },
-  { label: 'Контакты', to: '/#contact' },
 ];

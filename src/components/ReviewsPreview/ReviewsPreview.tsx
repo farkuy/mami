@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './ReviewsPreview.module.css';
 import Card from '../ui/Card/Card';
+import Button from '../ui/Button/Button';
 
 const reviews = [
   {
@@ -51,9 +52,9 @@ export default function ReviewsPreview() {
           ))}
         </div>
         <div className={styles.more}>
-          <Link to="/reviews" className="btn btn-primary">
+          <Button as={Link} to="/reviews">
             Все отзывы
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

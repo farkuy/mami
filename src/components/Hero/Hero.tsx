@@ -5,6 +5,7 @@ import homeImg from '../../assets/home.jpg';
 const tags = [
   {
     label: 'В городе',
+    to: '/tours#city',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M3 21h18" />
@@ -15,6 +16,7 @@ const tags = [
   },
   {
     label: 'Для детей',
+    to: '/tours#children',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="7" r="3" />
@@ -25,6 +27,7 @@ const tags = [
   },
   {
     label: 'В окрестностях',
+    to: '/tours',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M3 20l6-3 6 3 6-3V7l-6 3-6-3-6 3z" />
@@ -34,6 +37,7 @@ const tags = [
   },
   {
     label: 'Свой маршрут',
+    to: '/tours',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="6" cy="6" r="2.5" />
@@ -57,7 +61,7 @@ export default function Hero() {
         </p>
         <div className={styles.tags}>
           {tags.map((t) => (
-            <Link key={t.label} to="/tours" className={styles.tag}>
+            <Link key={t.label} to={t.to} className={styles.tag}>
               <span className={styles.tagIcon}>{t.icon}</span>
               {t.label}
             </Link>

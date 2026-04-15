@@ -1,5 +1,6 @@
 import styles from './Pitch.module.css';
 import Card from '../ui/Card/Card';
+import Button from '../ui/Button/Button';
 
 export default function Pitch() {
   return (
@@ -86,9 +87,9 @@ export default function Pitch() {
           Ваш гид в Нижнем Новгороде, Ирина Богдашова
         </p>
 
-        <a href="#contact" className={styles.cta}>
+        <Button as="a" href="#contact">
           Записаться на экскурсию
-        </a>
+        </Button>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './ToursPreview.module.css';
 import Card from '../ui/Card/Card';
+import Button from '../ui/Button/Button';
 
 const tours = [
   {
@@ -56,9 +57,9 @@ export default function ToursPreview() {
           ))}
         </div>
         <div className={styles.more}>
-          <Link to="/tours" className="btn btn-primary">
+          <Button as={Link} to="/tours">
             Все экскурсии
-          </Link>
+          </Button>
         </div>
       </div>
     </section>
