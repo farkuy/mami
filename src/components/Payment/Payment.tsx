@@ -1,6 +1,7 @@
 import styles from './Payment.module.css';
 import payImg from '../../assets/pay.jpg';
 import Card from '../ui/Card/Card';
+import PageBanner from '../ui/PageBanner/PageBanner';
 
 const PersonIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -26,23 +27,13 @@ const InfoIcon = () => (
 export default function Payment() {
   return (
     <section className={styles.page}>
-      <div className={styles.banner}>
-        <img
-          src={payImg}
-          alt="Оплата экскурсий"
-          className={styles.bannerImage}
-          loading="eager"
-        />
-        <div className={styles.bannerOverlay} />
-        <div className={`container ${styles.bannerContent}`}>
-          <span className={styles.kicker}>Оплата</span>
-          <h1 className={styles.title}>Условия и порядок оплаты</h1>
-          <p className={styles.lead}>
-            Два варианта оплаты — для частных туристов и для организаций.
-            Всё прозрачно: договор, чек и подтверждение бронирования.
-          </p>
-        </div>
-      </div>
+      <PageBanner
+        image={payImg}
+        imageAlt="Оплата экскурсий"
+        kicker="Оплата"
+        title="Условия и порядок оплаты"
+        lead="Два варианта оплаты — для частных туристов и для организаций. Всё прозрачно: договор, чек и подтверждение бронирования."
+      />
 
       <div className="container">
         <div className={styles.grid}>

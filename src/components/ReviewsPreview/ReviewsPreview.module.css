@@ -10,32 +10,6 @@
   margin-bottom: 40px;
 }
 
-.stars {
-  display: flex;
-  gap: 2px;
-  margin-bottom: 16px;
-  color: #f59e0b;
-}
-
-.text {
-  font-size: 0.938rem;
-  line-height: 1.7;
-  color: var(--color-text-light);
-  margin-bottom: 20px;
-  font-style: italic;
-}
-
-.author {
-  font-weight: 600;
-  font-size: 0.938rem;
-}
-
-.date {
-  font-size: 0.813rem;
-  color: var(--color-text-light);
-  margin-top: 4px;
-}
-
 .more {
   display: flex;
   justify-content: center;

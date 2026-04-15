@@ -1,6 +1,7 @@
 import styles from './AboutFull.module.css';
 import uslugiImg from '../../assets/uslugi.jpg';
 import Card from '../ui/Card/Card';
+import PageBanner from '../ui/PageBanner/PageBanner';
 
 type Service = {
   title: string;
@@ -57,23 +58,14 @@ const services: Service[] = [
 export default function AboutFull() {
   return (
     <section className={styles.page}>
-      <div className={styles.banner}>
-        <img
-          src={uslugiImg}
-          alt="Панорама Нижнего Новгорода"
-          className={styles.bannerImage}
-          loading="eager"
-        />
-        <div className={styles.bannerOverlay} />
-        <div className={`container ${styles.bannerContent}`}>
-          <span className={styles.kicker}>Услуги</span>
-          <h1 className={styles.title}>Всё для комфортного путешествия по Нижнему</h1>
-          <p className={styles.lead}>
-            От бесплатной консультации и составления маршрута до полного сопровождения
-            групп и корпоративных туров — подберём формат под любую задачу.
-          </p>
-        </div>
-      </div>
+      <PageBanner
+        image={uslugiImg}
+        imageAlt="Панорама Нижнего Новгорода"
+        kicker="Услуги"
+        title="Всё для комфортного путешествия по Нижнему"
+        lead="От бесплатной консультации и составления маршрута до полного сопровождения групп и корпоративных туров — подберём формат под любую задачу."
+        tall
+      />
 
       <div className="container">
         <ol className={styles.services}>
