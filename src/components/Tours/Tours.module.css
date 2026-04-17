@@ -54,6 +54,7 @@
   min-height: 260px;
   object-fit: cover;
   display: block;
+  background: var(--color-img-placeholder);
 }
 
 .body {

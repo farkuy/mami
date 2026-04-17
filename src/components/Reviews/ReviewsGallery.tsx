@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import styles from './ReviewsGallery.module.css';
+import SmartImage from '../ui/SmartImage/SmartImage';
 
 const modules = import.meta.glob('../../assets/reviews/*.{jpg,jpeg,png,webp}', {
   eager: true,
@@ -56,12 +57,11 @@ export default function ReviewsGallery() {
               onClick={() => setActiveIndex(i)}
               aria-label={`Открыть ${img.alt}`}
             >
-              <img
+              <SmartImage
                 className={styles.image}
                 src={img.src}
                 alt={img.alt}
                 loading="lazy"
-                decoding="async"
               />
             </button>
           ))}
@@ -86,7 +86,7 @@ export default function ReviewsGallery() {
           >
             ‹
           </button>
-          <img
+          <SmartImage
             className={styles.lightboxImage}
             src={images[activeIndex].src}
             alt={images[activeIndex].alt}

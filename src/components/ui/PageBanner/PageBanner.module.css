@@ -5,6 +5,11 @@
   align-items: flex-start;
   overflow: hidden;
   margin-bottom: 64px;
+  background: linear-gradient(
+    135deg,
+    var(--color-dark) 0%,
+    var(--color-accent) 100%
+  );
 }
 
 .image {

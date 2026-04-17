@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Meet.module.css';
+import SmartImage from '../ui/SmartImage/SmartImage';
 import meet1 from '../../assets/meet1.jpg';
 import meet2 from '../../assets/meet2.jpg';
 
@@ -43,7 +44,7 @@ export default function Meet() {
             >
               {photos.map((src, i) => (
                 <div className={styles.slide} key={i}>
-                  <img src={src} alt={`Фото ${i + 1}`} loading="lazy" />
+                  <SmartImage src={src} alt={`Фото ${i + 1}`} loading="lazy" />
                 </div>
               ))}
             </div>

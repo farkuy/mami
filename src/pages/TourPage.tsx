@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 import Button from '../components/ui/Button/Button';
 import Modal from '../components/ui/Modal/Modal';
+import SmartImage from '../components/ui/SmartImage/SmartImage';
 import OrderForm from '../components/OrderForm/OrderForm';
 import { getTourBySlug } from '../data/tours';
 import styles from './TourPage.module.css';
@@ -22,7 +23,7 @@ export default function TourPage() {
 
         <article className={styles.article}>
           <div className={styles.hero}>
-            <img className={styles.image} src={tour.image} alt={tour.name} />
+            <SmartImage className={styles.image} src={tour.image} alt={tour.name} />
           </div>
 
           <header className={styles.header}>

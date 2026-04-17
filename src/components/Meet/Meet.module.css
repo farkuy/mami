@@ -61,6 +61,7 @@
 .slide {
   flex: 0 0 100%;
   aspect-ratio: 16 / 9;
+  background: var(--color-img-placeholder);
 }
 
 .slide img {

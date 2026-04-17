@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './Tours.module.css';
 import Card from '../ui/Card/Card';
 import PageBanner from '../ui/PageBanner/PageBanner';
+import SmartImage from '../ui/SmartImage/SmartImage';
 import { tourGroups, getToursByGroup, tours } from '../../data/tours';
 
 export default function Tours() {
@@ -27,7 +28,7 @@ export default function Tours() {
               {getToursByGroup(group.id).map((tour) => (
                 <Link key={tour.slug} to={`/tours/${tour.slug}`} className={styles.rowLink}>
                   <Card as="article" variant="media" className={styles.row}>
-                    <img
+                    <SmartImage
                       className={styles.image}
                       src={tour.image}
                       alt={tour.name}

@@ -1,4 +1,5 @@
 import styles from './PageBanner.module.css';
+import SmartImage from '../SmartImage/SmartImage';
 
 type Props = {
   image: string;
@@ -24,7 +25,7 @@ export default function PageBanner({
 
   return (
     <div className={styles.banner}>
-      <img
+      <SmartImage
         src={image}
         alt={imageAlt}
         className={imageClass}

@@ -16,6 +16,8 @@
   --color-dark-hover: #1f2937;
   --color-border: #e5e7eb;
   --color-card-bg: #f9fafb;
+  --color-img-placeholder: #e5e7eb;
+  --color-img-placeholder-dark: #1f2937;
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --max-width: 1200px;
   --header-height: 72px;

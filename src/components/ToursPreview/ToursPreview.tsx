@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './ToursPreview.module.css';
 import Card from '../ui/Card/Card';
 import Button from '../ui/Button/Button';
+import SmartImage from '../ui/SmartImage/SmartImage';
 
 const tours = [
   {
@@ -39,7 +40,7 @@ export default function ToursPreview() {
         <div className={styles.grid}>
           {tours.map((tour) => (
             <Card key={tour.id} as="article" variant="media">
-              <img
+              <SmartImage
                 className={styles.image}
                 src={tour.image}
                 alt={tour.name}

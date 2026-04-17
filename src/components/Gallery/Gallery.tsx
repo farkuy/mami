@@ -1,4 +1,5 @@
 import styles from './Gallery.module.css';
+import SmartImage from '../ui/SmartImage/SmartImage';
 
 const images = [
   { src: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80', alt: 'Нижегородский Кремль' },
@@ -16,7 +17,7 @@ export default function Gallery() {
         <div className={styles.grid}>
           {images.map((img) => (
             <div key={img.alt} className={styles.item}>
-              <img
+              <SmartImage
                 className={styles.image}
                 src={img.src}
                 alt={img.alt}
