@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import { Navigate, useParams, Link } from 'react-router-dom';
 import Button from '../components/ui/Button/Button';
+import Modal from '../components/ui/Modal/Modal';
+import OrderForm from '../components/OrderForm/OrderForm';
 import { getTourBySlug } from '../data/tours';
 import styles from './TourPage.module.css';
 
 export default function TourPage() {
   const { slug = '' } = useParams<{ slug: string }>();
   const tour = getTourBySlug(slug);
+  const [orderOpen, setOrderOpen] = useState(false);
 
   if (!tour) return <Navigate to="/tours" replace />;
 
@@ -70,12 +74,26 @@ export default function TourPage() {
           </dl>
 
           <div className={styles.cta}>
-            <Button as="a" href="/#contact" variant="accent" size="lg">
+            <Button
+              type="button"
+              variant="accent"
+              size="lg"
+              onClick={() => setOrderOpen(true)}
+            >
               Заказать экскурсию
             </Button>
           </div>
         </article>
       </div>
+
+      <Modal
+        open={orderOpen}
+        onClose={() => setOrderOpen(false)}
+        title="Заявка на экскурсию"
+        subtitle="Оставьте контакты — свяжусь с вами и согласуем дату"
+      >
+        <OrderForm tourName={tour.name} autoFocusFirst />
+      </Modal>
     </div>
   );
 }

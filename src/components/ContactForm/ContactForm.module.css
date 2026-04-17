@@ -10,41 +10,6 @@
   padding: 48px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.input,
-.textarea {
-  width: 100%;
-  padding: 14px 16px;
-  font-size: 1rem;
-  font-family: inherit;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: #fff;
-  color: var(--color-text);
-  transition: border-color var(--transition);
-  outline: none;
-}
-
-.input:focus,
-.textarea:focus {
-  border-color: var(--color-accent);
-}
-
-.textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.submit {
-  align-self: stretch;
-  margin-top: 8px;
-}
-
 @media (max-width: 768px) {
   .contact {
     padding: 48px 0;

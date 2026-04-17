@@ -1,15 +1,21 @@
 import { Link } from 'react-router-dom';
 import styles from './Tours.module.css';
 import Card from '../ui/Card/Card';
-import { tourGroups, getToursByGroup } from '../../data/tours';
+import PageBanner from '../ui/PageBanner/PageBanner';
+import { tourGroups, getToursByGroup, tours } from '../../data/tours';
 
 export default function Tours() {
   return (
     <section id="tours" className={styles.tours}>
-      <div className="container">
-        <h2 className="section-title">Экскурсии</h2>
-        <p className="section-subtitle">Выберите маршрут или закажите индивидуальную программу</p>
+      <PageBanner
+        image={tours[0].image}
+        imageAlt={tours[0].name}
+        kicker="Экскурсии"
+        title="Маршруты по Нижнему Новгороду"
+        lead="Выберите готовую программу или закажите индивидуальную — классические обзорные, тематические, детские и гастрономические экскурсии."
+      />
 
+      <div className="container">
         {tourGroups.map((group) => (
           <div key={group.id} id={group.id} className={styles.group}>
             <div className={styles.groupHeader}>

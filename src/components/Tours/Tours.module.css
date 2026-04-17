@@ -1,5 +1,5 @@
 .tours {
-  padding: 80px 0;
+  padding: 0 0 80px;
   background: var(--color-card-bg);
 }
 
@@ -101,7 +101,7 @@
 
 @media (max-width: 768px) {
   .tours {
-    padding: 48px 0;
+    padding: 0 0 48px;
   }
 
   .group + .group {

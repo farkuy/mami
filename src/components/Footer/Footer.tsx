@@ -52,8 +52,18 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className={styles.bottom}>
-        &copy; {new Date().getFullYear()} НижнийГид. Все права защищены.
+      <div className={styles.bottomWrap}>
+        <div className={`container ${styles.bottom}`}>
+          <span>&copy; {new Date().getFullYear()} НижнийГид. Все права защищены.</span>
+          <div className={styles.bottomLinks}>
+            <Link to="/privacy" className={styles.bottomLink}>
+              Политика конфиденциальности
+            </Link>
+            <Link to="/data-policy" className={styles.bottomLink}>
+              Обработка персональных данных
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

@@ -1,0 +1,82 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+  animation: fadeIn 180ms ease-out;
+}
+
+.dialog {
+  position: relative;
+  background: #fff;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 40px 40px 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: popIn 220ms ease-out;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.close:hover {
+  background: var(--color-card-bg);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--color-text);
+  padding-right: 36px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin: 0 0 24px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .overlay {
+    padding: 12px;
+  }
+
+  .dialog {
+    padding: 32px 20px 24px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+}

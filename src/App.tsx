@@ -8,6 +8,8 @@ const TourPage = lazy(() => import('./pages/TourPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PaymentPage = lazy(() => import('./pages/PaymentPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const DataPolicyPage = lazy(() => import('./pages/DataPolicyPage'));
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="payment" element={<PaymentPage />} />
             <Route path="reviews" element={<ReviewsPage />} />
+            <Route path="privacy" element={<PrivacyPage />} />
+            <Route path="data-policy" element={<DataPolicyPage />} />
           </Route>
         </Routes>
       </Suspense>

@@ -72,12 +72,34 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-.bottom {
+.bottomWrap {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 24px;
-  text-align: center;
+}
+
+.bottom {
   font-size: 0.813rem;
   color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bottomLinks {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.bottomLink {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition);
+}
+
+.bottomLink:hover {
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -92,6 +114,15 @@
   }
 
   .social {
+    justify-content: center;
+  }
+
+  .bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .bottomLinks {
     justify-content: center;
   }
 }

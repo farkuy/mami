@@ -1,0 +1,47 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text);
+  transition: border-color var(--transition);
+  outline: none;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.input:disabled {
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  cursor: default;
+  opacity: 1;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit {
+  align-self: stretch;
+  margin-top: 8px;
+}
+
+.success {
+  text-align: center;
+  font-size: 1.125rem;
+  margin: 0;
+}
