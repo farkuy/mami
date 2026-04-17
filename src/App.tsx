@@ -13,7 +13,7 @@ const DataPolicyPage = lazy(() => import('./pages/DataPolicyPage'));
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Suspense>
         <Routes>
           <Route element={<Layout />}>
