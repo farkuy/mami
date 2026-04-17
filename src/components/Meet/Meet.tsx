@@ -14,11 +14,15 @@ export default function Meet() {
 
   return (
     <section className={styles.meet}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>Давайте знакомиться</h2>
-        <p className={styles.subtitle}>
-          Несколько кадров из моих экскурсий — чтобы вы могли увидеть, как мы проводим время вместе.
-        </p>
+      <div className="container">
+        <div className={styles.head}>
+          <span className={styles.kicker}>Галерея</span>
+          <h2 className={styles.title}>Атмосфера экскурсий</h2>
+          <p className={styles.subtitle}>
+            Несколько кадров — чтобы вы почувствовали настроение наших прогулок
+            ещё до первой встречи.
+          </p>
+        </div>
 
         <div className={styles.carousel}>
           <button
