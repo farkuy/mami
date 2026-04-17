@@ -31,6 +31,35 @@ const features = [
     title: 'Индивидуальный подход',
     text: 'Программа подстраивается под ваши интересы, темп и пожелания. Экскурсия для вас, а не вы для экскурсии.',
   },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M2 20l5-12 5 8 4-6 6 10z" />
+        <circle cx="17" cy="6" r="2" />
+      </svg>
+    ),
+    title: 'Секретная смотровая',
+    text: 'Место, откуда город виден как на ладони — не для всех туристов.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 7h3l2-3h8l2 3h3v12H3z" />
+        <circle cx="12" cy="13" r="4" />
+      </svg>
+    ),
+    title: 'Идеальные фото',
+    text: 'Подскажу лучшие ракурсы для селфи и групповых кадров.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 2l2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4 8 11.8 4 7.8 9.6 7z" />
+      </svg>
+    ),
+    title: 'Живые истории',
+    text: 'Без зазубренных лекций — только то, что хочется слушать.',
+  },
 ];
 
 export default function About() {

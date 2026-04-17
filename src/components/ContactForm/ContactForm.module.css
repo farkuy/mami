@@ -1,45 +1,28 @@
 .contact {
-  position: relative;
   padding: 96px 0;
-  background: linear-gradient(135deg, #111827 0%, #1f3a34 100%);
-  overflow: hidden;
-}
-
-.contact::before {
-  content: '';
-  position: absolute;
-  top: -120px;
-  right: -140px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(57, 96, 83, 0.4) 0%, rgba(57, 96, 83, 0) 70%);
-  pointer-events: none;
+  background: var(--color-card-bg);
 }
 
 .grid {
-  position: relative;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 56px;
   align-items: center;
 }
 
-.info {
-  color: #fff;
-}
-
 .kicker {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 20px;
+  color: var(--color-accent);
+  background: rgba(57, 96, 83, 0.12);
+  border: 1px solid rgba(57, 96, 83, 0.25);
+  backdrop-filter: blur(4px);
+  padding: 7px 14px;
+  border-radius: 8px;
+  margin-bottom: 18px;
 }
 
 .title {
@@ -47,13 +30,14 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.1;
+  color: var(--color-text);
   margin-bottom: 20px;
 }
 
 .lead {
   font-size: 1.063rem;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-light);
   margin: 0 0 32px;
 }
 
@@ -69,7 +53,7 @@
   align-items: center;
   gap: 14px;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--color-text);
 }
 
 .bullet svg {
@@ -94,15 +78,16 @@
   gap: 14px;
   padding: 12px 18px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #fff;
-  transition: background var(--transition), border-color var(--transition);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .contactItem:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .contactIcon {
@@ -127,7 +112,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-light);
   margin-bottom: 2px;
 }
 
@@ -135,14 +120,15 @@
   display: block;
   font-size: 0.969rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text);
 }
 
 .formCard {
   background: #fff;
   border-radius: 20px;
   padding: 36px 32px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
 }
 
 .formTitle {
