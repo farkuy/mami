@@ -1,7 +1,7 @@
 import styles from './Pitch.module.css';
 import Button from '../ui/Button/Button';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import avatarImg from '../../assets/meet1.jpg';
+import avatarImg from '../../assets/guide-portrait.jpg';
 
 export default function Pitch() {
   return (
@@ -9,7 +9,7 @@ export default function Pitch() {
       <div className="container">
         <div className={styles.layout}>
           <div className={styles.portrait}>
-            <SmartImage src={avatarImg} alt="Ирина Богдашова" loading="lazy" />
+            <SmartImage src={avatarImg} alt="Ирина Богдашова" loading="eager" fetchPriority="high" />
           </div>
 
           <div className={styles.content}>

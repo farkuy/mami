@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Hero.module.css';
-import homeImg from '../../assets/home.jpg';
+import homeHeroImg from '../../assets/home-hero.jpg';
 
 const tags = [
   {
@@ -49,10 +50,20 @@ const tags = [
 ];
 
 export default function Hero() {
-  const heroImage = typeof homeImg === 'string' ? homeImg : homeImg.src;
-
   return (
-    <section className={styles.hero} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url(${heroImage})` }}>
+    <section className={styles.hero}>
+      <Image
+        src={homeHeroImg}
+        alt=""
+        fill
+        priority
+        placeholder="blur"
+        sizes="100vw"
+        unoptimized
+        className={styles.bgImage}
+        aria-hidden="true"
+      />
+      <div className={styles.overlay} aria-hidden="true" />
       <div className={styles.content}>
         <h1 className={styles.title}>
           Откройте Нижний Новгород с&nbsp;персональным гидом
