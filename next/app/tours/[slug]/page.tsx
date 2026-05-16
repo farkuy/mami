@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import JsonLd from '@/components/JsonLd/JsonLd';
 import SmartImage from '@/components/ui/SmartImage/SmartImage';
 import TourOrderCta from '@/components/TourOrderCta/TourOrderCta';
 import { buildPageMetadata } from '@/config/seo';
+import { buildTourPageStructuredData } from '@/config/structured-data';
 import { getTourBySlug, tours } from '@/data/tours';
 import styles from '@/components/TourPage.module.css';
 
@@ -48,6 +50,7 @@ export default async function TourPage({ params }: Props) {
 
   return (
     <div className={styles.page}>
+      <JsonLd data={buildTourPageStructuredData(tour)} />
       <div className="container">
         <Link href="/tours" className={styles.back}>
           ← Все экскурсии

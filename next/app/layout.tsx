@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import JsonLd from '@/components/JsonLd/JsonLd';
 import { siteBaseUrl, siteDescription, siteName } from '@/config/seo';
+import { buildSiteStructuredData } from '@/config/structured-data';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -29,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
+        <JsonLd data={buildSiteStructuredData()} />
         <Header />
         <main>{children}</main>
         <Footer />
