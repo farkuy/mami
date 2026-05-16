@@ -11,6 +11,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.next
 *.local
 coverage
 .vite
@@ -52,3 +53,6 @@ service-account*.json
 # Claude Code local state
 .claude/settings.local.json
 .claude/.credentials*
+
+# Local planning docs
+docs/next-seo-migration-plan.md
