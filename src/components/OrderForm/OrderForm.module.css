@@ -4,23 +4,28 @@
   gap: 16px;
 }
 
+.field {
+  position: relative;
+}
+
 .input,
 .textarea {
   width: 100%;
-  padding: 14px 16px;
+  padding: 22px 16px 10px;
   font-size: 1rem;
   font-family: inherit;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   background: #fff;
   color: var(--color-text);
-  transition: border-color var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition);
   outline: none;
 }
 
 .input:focus,
 .textarea:focus {
   border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(57, 96, 83, 0.12);
 }
 
 .input:disabled {
@@ -30,14 +35,74 @@
   opacity: 1;
 }
 
+.label {
+  position: absolute;
+  top: 17px;
+  left: 16px;
+  max-width: calc(100% - 32px);
+  color: var(--color-text-light);
+  font-size: 1rem;
+  line-height: 1;
+  pointer-events: none;
+  transform-origin: left top;
+  transition:
+    top var(--transition),
+    color var(--transition),
+    font-size var(--transition);
+}
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label,
+.textarea:focus + .label,
+.textarea:not(:placeholder-shown) + .label,
+.fieldDisabled .label {
+  top: 8px;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+}
+
 .textarea {
   resize: vertical;
   min-height: 120px;
 }
 
+.consent {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--color-text-light);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.consentLink {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.consentLink:hover {
+  color: var(--color-accent-hover);
+}
+
 .submit {
   align-self: stretch;
   margin-top: 8px;
+}
+
+.submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
 }
 
 .success {
