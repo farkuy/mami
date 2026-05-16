@@ -11,6 +11,8 @@ type Props = {
   }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return tours.map((tour) => ({
     slug: tour.slug,
