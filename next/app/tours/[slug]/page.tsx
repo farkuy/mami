@@ -1,7 +1,9 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SmartImage from '@/components/ui/SmartImage/SmartImage';
 import TourOrderCta from '@/components/TourOrderCta/TourOrderCta';
+import { buildPageMetadata } from '@/config/seo';
 import { getTourBySlug, tours } from '@/data/tours';
 import styles from '@/components/TourPage.module.css';
 
@@ -17,6 +19,23 @@ export function generateStaticParams() {
   return tours.map((tour) => ({
     slug: tour.slug,
   }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const tour = getTourBySlug(slug);
+
+  if (!tour) {
+    return {};
+  }
+
+  return buildPageMetadata({
+    title: tour.name,
+    description: tour.shortDescription,
+    path: `/tours/${tour.slug}`,
+    image: tour.image,
+    imageAlt: tour.name,
+  });
 }
 
 export default async function TourPage({ params }: Props) {
