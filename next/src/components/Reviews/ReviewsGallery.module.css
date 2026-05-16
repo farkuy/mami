@@ -1,0 +1,138 @@
+.section {
+  padding: 80px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.item {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  background: #f3f4f6;
+  aspect-ratio: 3 / 4;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 8px 24px rgba(0, 0, 0, 0.12));
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--color-accent, #396053);
+  outline-offset: 2px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightboxImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.navBtn {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.navBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.closeBtn {
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+}
+
+.prevBtn {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nextBtn {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.counter {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 0.875rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 14px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .navBtn {
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+  }
+  .prevBtn { left: 8px; }
+  .nextBtn { right: 8px; }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 48px 0;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}

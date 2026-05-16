@@ -1,0 +1,26 @@
+.reviews {
+  padding: 0 0 80px;
+  background: var(--color-card-bg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews {
+    padding: 0 0 48px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,45 @@
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.padded {
+  padding: 28px;
+}
+
+.hoverable {
+  cursor: default;
+}
+
+.hoverable:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.accent::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: var(--color-accent);
+}
+
+.accent.padded {
+  padding-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .padded {
+    padding: 22px;
+  }
+
+  .accent.padded {
+    padding-top: 28px;
+  }
+}
