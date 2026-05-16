@@ -1,13 +1,19 @@
-import { type FormEvent, useId, useState } from 'react';
+import { type FormEvent, useEffect, useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button/Button';
 import styles from './OrderForm.module.css';
 
 const CONTACT_EMAIL = 'bogdasovanton83@gmail.com';
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || 'http://localhost:3001/api/contact';
 
 type Props = {
   tourName?: string;
   autoFocusFirst?: boolean;
+};
+
+type ContactErrorResponse = {
+  errors?: Record<string, string>;
+  error?: string;
 };
 
 export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
@@ -17,31 +23,57 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [acceptedPolicy, setAcceptedPolicy] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  useEffect(() => {
+    if (!toastMessage) {
+      return;
+    }
+
+    const timerId = window.setTimeout(() => {
+      setToastMessage('');
+    }, 6000);
+
+    return () => window.clearTimeout(timerId);
+  }, [toastMessage]);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setToastMessage('');
+    setIsSubmitting(true);
 
-    const subject = tourName
-      ? `Заявка на экскурсию «${tourName}» от ${name}`
-      : `Заявка на экскурсию от ${name}`;
-    const body = [
-      tourName && `Экскурсия: ${tourName}`,
-      `Имя: ${name}`,
-      `Email: ${email}`,
-      '',
-      message || '(без комментария)',
-    ]
-      .filter(Boolean)
-      .join('\n');
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          tourName,
+          acceptedPolicy,
+        }),
+      });
 
-    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = href;
+      if (!response.ok) {
+        const payload = await parseErrorResponse(response);
+        setToastMessage(getErrorMessage(payload));
+        return;
+      }
 
-    setSubmitted(true);
+      setSubmitted(true);
+    } catch {
+      setToastMessage(`Не удалось отправить заявку. Напишите напрямую на ${CONTACT_EMAIL}.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
-    return <p className={styles.success}>Спасибо! Открылось письмо с вашей заявкой.</p>;
+    return <p className={styles.success}>Спасибо! Заявка отправлена, я свяжусь с вами в ближайшее время.</p>;
   }
 
   return (
@@ -127,9 +159,39 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
         </span>
       </label>
 
-      <Button type="submit" variant="accent" fullWidth className={styles.submit} disabled={!acceptedPolicy}>
-        Отправить заявку
+      <Button type="submit" variant="accent" fullWidth className={styles.submit} disabled={!acceptedPolicy || isSubmitting}>
+        {isSubmitting ? 'Отправляем...' : 'Отправить заявку'}
       </Button>
+
+      {toastMessage && (
+        <div className={styles.toast} role="alert" aria-live="assertive">
+          <span>{toastMessage}</span>
+          <button
+            className={styles.toastClose}
+            type="button"
+            aria-label="Закрыть уведомление"
+            onClick={() => setToastMessage('')}
+          >
+            x
+          </button>
+        </div>
+      )}
     </form>
   );
+}
+
+async function parseErrorResponse(response: Response): Promise<ContactErrorResponse> {
+  try {
+    return await response.json();
+  } catch {
+    return {};
+  }
+}
+
+function getErrorMessage(payload: ContactErrorResponse) {
+  if (payload.errors) {
+    return Object.values(payload.errors)[0] || 'Проверьте данные формы.';
+  }
+
+  return payload.error || 'Не удалось отправить заявку. Попробуйте позже.';
 }
