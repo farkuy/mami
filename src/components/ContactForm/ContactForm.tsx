@@ -17,7 +17,7 @@ export default function ContactForm() {
             <span className={styles.kicker}>Свяжитесь со мной</span>
             <h2 className={styles.title}>Готовы к путешествию?</h2>
             <p className={styles.lead}>
-              Напишите в свободной форме — и я помогу спланировать
+              Напишите в свободной форме - и я помогу спланировать
               идеальный маршрут по Нижнему Новгороду.
             </p>
 
@@ -67,7 +67,7 @@ export default function ContactForm() {
           <div className={styles.formCard}>
             <h3 className={styles.formTitle}>Оставить заявку</h3>
             <p className={styles.formHint}>
-              Заполните форму — я свяжусь с вами в ближайшее время.
+              Заполните форму - я свяжусь с вами в ближайшее время.
             </p>
             <OrderForm />
           </div>

@@ -20,7 +20,7 @@ export default function Meet() {
           <span className={styles.kicker}>Галерея</span>
           <h2 className={styles.title}>Атмосфера экскурсий</h2>
           <p className={styles.subtitle}>
-            Несколько кадров — чтобы вы почувствовали настроение наших прогулок
+            Несколько кадров - чтобы вы почувствовали настроение наших прогулок
             ещё до первой встречи.
           </p>
         </div>

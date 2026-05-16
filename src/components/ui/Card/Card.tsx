@@ -3,7 +3,7 @@ import styles from './Card.module.css';
 
 type CardProps = {
   children: ReactNode;
-  /** `media` — карточка с изображением/кастомным содержимым, без паддингов */
+  /** `media` - карточка с изображением/кастомным содержимым, без паддингов */
   variant?: 'default' | 'accent' | 'media';
   /** Отключает hover-анимацию (для статичных карточек, например отзывов) */
   hoverable?: boolean;

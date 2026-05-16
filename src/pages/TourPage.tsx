@@ -91,7 +91,7 @@ export default function TourPage() {
         open={orderOpen}
         onClose={() => setOrderOpen(false)}
         title="Заявка на экскурсию"
-        subtitle="Оставьте контакты — свяжусь с вами и согласуем дату"
+        subtitle="Оставьте контакты - свяжусь с вами и согласуем дату"
       >
         <OrderForm tourName={tour.name} autoFocusFirst />
       </Modal>
