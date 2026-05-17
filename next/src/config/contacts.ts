@@ -3,7 +3,7 @@ export const contacts = {
     display: '+7 (920) 020-54-24',
     tel: '+79200205424',
   },
-  email: 'guide@example.com',
+  email: 'bogdasovanton83@gmail.com',
   messengers: {
     telegram: {
       label: 'Написать в Telegram',
