@@ -167,8 +167,18 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
         </span>
       </label>
 
-      <Button type="submit" variant="accent" fullWidth className={styles.submit} disabled={!acceptedPolicy || isSubmitting}>
-        {isSubmitting ? 'Отправляем...' : 'Отправить заявку'}
+      <Button
+        type="submit"
+        variant="accent"
+        fullWidth
+        className={styles.submit}
+        disabled={!acceptedPolicy || isSubmitting}
+        aria-busy={isSubmitting}
+      >
+        {isSubmitting && <span className={styles.loader} aria-hidden="true" />}
+        <span aria-live="polite">
+          {isSubmitting ? 'Отправляем...' : 'Отправить заявку'}
+        </span>
       </Button>
 
       {toastMessage && (

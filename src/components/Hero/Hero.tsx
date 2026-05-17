@@ -1,6 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import styles from './Hero.module.css';
+import Modal from '../ui/Modal/Modal';
+import OrderForm from '../OrderForm/OrderForm';
 import homeHeroImg from '../../assets/home-hero.jpg';
 
 const tags = [
@@ -28,7 +33,7 @@ const tags = [
   },
   {
     label: 'В окрестностях',
-    to: '/tours',
+    to: '/tours#region',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M3 20l6-3 6 3 6-3V7l-6 3-6-3-6 3z" />
@@ -50,36 +55,61 @@ const tags = [
 ];
 
 export default function Hero() {
+  const [customRouteOpen, setCustomRouteOpen] = useState(false);
+
   return (
-    <section className={styles.hero}>
-      <Image
-        src={homeHeroImg}
-        alt=""
-        fill
-        priority
-        placeholder="blur"
-        sizes="100vw"
-        className={styles.bgImage}
-        aria-hidden="true"
-      />
-      <div className={styles.overlay} aria-hidden="true" />
-      <div className={styles.content}>
-        <h1 className={styles.title}>
-          Откройте Нижний Новгород с&nbsp;персональным гидом
-        </h1>
-        <p className={styles.subtitle}>
-          Индивидуальные и групповые экскурсии по столице закатов.
-          Авторские маршруты, увлекательные истории, незабываемые впечатления.
-        </p>
-        <div className={styles.tags}>
-          {tags.map((t) => (
-            <Link key={t.label} href={t.to} className={styles.tag}>
-              <span className={styles.tagIcon}>{t.icon}</span>
-              {t.label}
-            </Link>
-          ))}
+    <>
+      <section className={styles.hero}>
+        <Image
+          src={homeHeroImg}
+          alt=""
+          fill
+          priority
+          placeholder="blur"
+          sizes="100vw"
+          className={styles.bgImage}
+          aria-hidden="true"
+        />
+        <div className={styles.overlay} aria-hidden="true" />
+        <div className={styles.content}>
+          <h1 className={styles.title}>
+            Откройте Нижний Новгород с&nbsp;персональным гидом
+          </h1>
+          <p className={styles.subtitle}>
+            Индивидуальные и групповые экскурсии по столице закатов.
+            Авторские маршруты, увлекательные истории, незабываемые впечатления.
+          </p>
+          <div className={styles.tags}>
+            {tags.map((t) => (
+              t.label === 'Свой маршрут' ? (
+                <button
+                  key={t.label}
+                  type="button"
+                  className={styles.tag}
+                  onClick={() => setCustomRouteOpen(true)}
+                >
+                  <span className={styles.tagIcon}>{t.icon}</span>
+                  {t.label}
+                </button>
+              ) : (
+                <Link key={t.label} href={t.to} className={styles.tag}>
+                  <span className={styles.tagIcon}>{t.icon}</span>
+                  {t.label}
+                </Link>
+              )
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Modal
+        open={customRouteOpen}
+        onClose={() => setCustomRouteOpen(false)}
+        title="Заявка на свой маршрут"
+        subtitle="Расскажите, что хочется увидеть, - подберем формат, темп и маршрут под вас"
+      >
+        <OrderForm tourName="Свой маршрут" autoFocusFirst />
+      </Modal>
+    </>
   );
 }

@@ -1,7 +1,7 @@
 export const contacts = {
   phone: {
-    display: '+7 (920) 020-54-24',
-    tel: '+79200205424',
+    display: '+7 (950) 350-73-03',
+    tel: '+79503507303',
   },
   email: 'bogdasovanton83@gmail.com',
   messengers: {

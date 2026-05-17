@@ -26,6 +26,11 @@ function buildBreadcrumbNode(items: BreadcrumbItem[]) {
 
 function buildTourNode(tour: Tour) {
   const url = absoluteUrl(`/tours/${tour.slug}`);
+  const touristTypeByGroup: Record<Tour['group'], string> = {
+    city: 'Гости Нижнего Новгорода',
+    region: 'Гости Нижегородской области',
+    children: 'Дети и школьные группы',
+  };
 
   return {
     '@type': 'TouristTrip',
@@ -37,7 +42,7 @@ function buildTourNode(tour: Tour) {
     provider: {
       '@id': absoluteUrl('/#local-business'),
     },
-    touristType: tour.group === 'children' ? 'Дети и школьные группы' : 'Гости Нижнего Новгорода',
+    touristType: touristTypeByGroup[tour.group],
     additionalProperty: [
       {
         '@type': 'PropertyValue',

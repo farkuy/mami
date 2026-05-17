@@ -11,7 +11,7 @@ export default function Footer() {
           <p className={styles.brand}>НижнийГид</p>
           <p className={styles.desc}>
             Персональный гид по Нижнему Новгороду. Индивидуальные и групповые
-            экскурсии с 2015 года.
+            экскурсии.
           </p>
         </div>
 

@@ -3,10 +3,29 @@
 import { useState } from 'react';
 import styles from './Meet.module.css';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import meet1 from '../../assets/meet1.webp';
 import meet2 from '../../assets/meet2.webp';
+import strelkaImg from '../../assets/excursions/city/arrow.webp';
+import teaImg from '../../assets/excursions/city/masterClass.webp';
+import masterovoyImg from '../../assets/excursions/children4.webp';
 
-const photos = [meet1, meet2];
+const photos = [
+  {
+    src: strelkaImg,
+    alt: 'Кафедральный собор Александра Невского на Стрелке',
+  },
+  {
+    src: teaImg,
+    alt: 'Чаепитие по-нижегородски с самоваром и угощениями',
+  },
+  {
+    src: masterovoyImg,
+    alt: 'Мастерская с нижегородскими промыслами',
+  },
+  {
+    src: meet2,
+    alt: 'Гид на прогулке по историческому маршруту',
+  },
+];
 
 export default function Meet() {
   const [index, setIndex] = useState(0);
@@ -44,9 +63,9 @@ export default function Meet() {
               className={styles.track}
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
-              {photos.map((src, i) => (
-                <div className={styles.slide} key={i}>
-                  <SmartImage src={src} alt={`Фото ${i + 1}`} loading="lazy" />
+              {photos.map((photo) => (
+                <div className={styles.slide} key={photo.alt}>
+                  <SmartImage src={photo.src} alt={photo.alt} loading="lazy" />
                 </div>
               ))}
             </div>

@@ -98,12 +98,22 @@
 .submit {
   align-self: stretch;
   margin-top: 8px;
+  gap: 10px;
 }
 
 .submit:disabled {
   cursor: not-allowed;
   opacity: 0.55;
   transform: none;
+}
+
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
 .toast {
@@ -175,5 +185,11 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
