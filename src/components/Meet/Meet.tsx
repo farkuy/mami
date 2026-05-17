@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import styles from './Meet.module.css';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import meet2 from '../../assets/meet2.webp';
 import strelkaImg from '../../assets/excursions/city/arrow.webp';
 import teaImg from '../../assets/excursions/city/masterClass.webp';
 import masterovoyImg from '../../assets/excursions/children4.webp';
@@ -20,10 +19,6 @@ const photos = [
   {
     src: masterovoyImg,
     alt: 'Мастерская с нижегородскими промыслами',
-  },
-  {
-    src: meet2,
-    alt: 'Гид на прогулке по историческому маршруту',
   },
 ];
 

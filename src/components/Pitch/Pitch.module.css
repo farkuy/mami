@@ -57,29 +57,34 @@
   font-size: 1.063rem;
   line-height: 1.7;
   color: var(--color-text-light);
-  margin: 0 0 36px;
+  margin: 0 0 24px;
 }
 
-.quote {
-  margin: 0 0 32px;
-  padding: 4px 0 4px 24px;
-  border-left: 3px solid var(--color-accent);
+.credentials {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
 }
 
-.quoteText {
-  margin: 0 0 10px;
-  font-size: 1.125rem;
-  line-height: 1.6;
+.credentials li {
+  position: relative;
+  padding-left: 28px;
   color: var(--color-text);
-  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
-.quoteAuthor {
-  font-size: 0.813rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--color-accent);
+.credentials li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
 }
 
 .intro {
@@ -152,12 +157,8 @@
     font-size: 1rem;
   }
 
-  .quote {
-    padding-left: 20px;
-  }
-
-  .quoteText {
-    font-size: 1.063rem;
+  .credentials li {
+    font-size: 0.969rem;
   }
 
   .signOff {

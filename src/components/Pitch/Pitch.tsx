@@ -6,7 +6,7 @@ import Button from '../ui/Button/Button';
 import Modal from '../ui/Modal/Modal';
 import OrderForm from '../OrderForm/OrderForm';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import avatarImg from '../../assets/guide-portrait.jpg';
+import meet2Img from '../../assets/meet2.webp';
 
 export default function Pitch() {
   const [requestOpen, setRequestOpen] = useState(false);
@@ -17,31 +17,31 @@ export default function Pitch() {
         <div className="container">
           <div className={styles.layout}>
             <div className={styles.portrait}>
-              <SmartImage src={avatarImg} alt="Ирина Богдашова" loading="lazy" />
+              <SmartImage src={meet2Img} alt="Ирина Богдашова на экскурсионном маршруте" loading="lazy" />
             </div>
 
             <div className={styles.content}>
               <span className={styles.kicker}>О гиде</span>
               <h2 className={styles.title}>Нижний глазами местного</h2>
               <p className={styles.lead}>
-                Волжские просторы, вид с высоты Дятловых гор, купеческий уклад
-                и ритм современной столицы Поволжья - всё это Нижний Новгород.
-                Проведу по самым колоритным уголкам с шутками, любопытными
-                историями и секретными локациями, о которых не пишут в путеводителях.
+                Меня зовут Ирина Богдашова. Я профессиональный дипломированный
+                гид-экскурсовод по Нижнему Новгороду и Нижегородской области:
+                провожу городские прогулки, выездные маршруты и тематические
+                программы без посредников и наценок.
               </p>
 
-              <figure className={styles.quote}>
-                <blockquote className={styles.quoteText}>
-                  Нижний сразу очаровал меня своей оригинальной красотой, стенами
-                  и башнями кремля, широтою водного пространства и лугов… Никакие
-                  Парижи да Лондоны мне этот уголок не заменят.
-                </blockquote>
-                <figcaption className={styles.quoteAuthor}>Фёдор Шаляпин</figcaption>
-              </figure>
+              <ul className={styles.credentials}>
+                <li>Аттестована при министерстве туризма Нижегородской области</li>
+                <li>Имею аттестацию Нижегородской епархии для экскурсий по Кафедральному собору Александра Невского</li>
+                <li>Работаю напрямую: помогаю выбрать маршрут, темп и формат под вашу группу</li>
+              </ul>
 
               <p className={styles.intro}>
-                Шаляпин - величина. Но пусть у вас появятся свои впечатления -
-                живые и незабываемые. С нетерпением жду вас в гости.
+                В экскурсиях соединяю точные исторические факты, городские
+                легенды и живые детали современного Нижнего. Показываю не только
+                главные туристические места, но и то, что обычно остается за
+                страницами путеводителей: характер улиц, неожиданные ракурсы,
+                скрытые истории и местный взгляд на город.
               </p>
 
               <div className={styles.signOff}>

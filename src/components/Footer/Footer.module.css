@@ -1,14 +1,14 @@
 .footer {
   background: var(--color-dark);
   color: #fff;
-  padding: 48px 0 24px;
+  padding: 48px 0 0;
 }
 
 .inner {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 56px;
 }
 
 .brand {
@@ -74,7 +74,8 @@
 
 .bottomWrap {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 24px;
+  padding: 26px 0;
+  margin-top: 26px;
 }
 
 .bottom {
