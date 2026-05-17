@@ -1,6 +1,6 @@
 import AboutFull from '@/components/AboutFull/AboutFull';
 import { buildPageMetadata } from '@/config/seo';
-import aboutImg from '@/assets/uslugi.jpg';
+import aboutImg from '@/assets/uslugi.webp';
 
 export const metadata = buildPageMetadata({
   title: 'О гиде и услугах',

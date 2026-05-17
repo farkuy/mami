@@ -1,5 +1,5 @@
 import styles from './DataPolicy.module.css';
-import policyImg from '../../assets/excursions/city/mysticism.jpg';
+import policyImg from '../../assets/excursions/city/mysticism.webp';
 import PageBanner from '../ui/PageBanner/PageBanner';
 import { contacts } from '../../config/contacts';
 

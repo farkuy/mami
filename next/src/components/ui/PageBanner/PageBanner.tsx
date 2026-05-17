@@ -31,6 +31,9 @@ export default function PageBanner({
         alt={imageAlt}
         className={imageClass}
         loading={eager ? 'eager' : 'lazy'}
+        priority={eager}
+        fetchPriority={eager ? 'high' : 'auto'}
+        sizes="100vw"
       />
       <div className={styles.overlay} />
       <div className={`container ${styles.content}`}>

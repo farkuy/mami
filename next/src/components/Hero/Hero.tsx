@@ -59,7 +59,6 @@ export default function Hero() {
         priority
         placeholder="blur"
         sizes="100vw"
-        unoptimized
         className={styles.bgImage}
         aria-hidden="true"
       />

@@ -9,7 +9,7 @@ export default function Pitch() {
       <div className="container">
         <div className={styles.layout}>
           <div className={styles.portrait}>
-            <SmartImage src={avatarImg} alt="Ирина Богдашова" loading="eager" fetchPriority="high" />
+            <SmartImage src={avatarImg} alt="Ирина Богдашова" loading="lazy" />
           </div>
 
           <div className={styles.content}>

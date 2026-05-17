@@ -1,6 +1,6 @@
 import Payment from '@/components/Payment/Payment';
 import { buildPageMetadata } from '@/config/seo';
-import paymentImg from '@/assets/pay.jpg';
+import paymentImg from '@/assets/pay.webp';
 
 export const metadata = buildPageMetadata({
   title: 'Оплата экскурсий',

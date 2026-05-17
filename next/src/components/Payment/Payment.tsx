@@ -1,5 +1,5 @@
 import styles from './Payment.module.css';
-import payImg from '../../assets/pay.jpg';
+import payImg from '../../assets/pay.webp';
 import Card from '../ui/Card/Card';
 import PageBanner from '../ui/PageBanner/PageBanner';
 

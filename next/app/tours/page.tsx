@@ -1,6 +1,6 @@
 import Tours from '@/components/Tours/Tours';
 import { buildPageMetadata } from '@/config/seo';
-import overviewImg from '@/assets/excursions/overview.jpg';
+import overviewImg from '@/assets/excursions/overview.webp';
 
 export const metadata = buildPageMetadata({
   title: 'Экскурсии по Нижнему Новгороду',

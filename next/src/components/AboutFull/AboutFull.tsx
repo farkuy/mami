@@ -1,5 +1,5 @@
 import styles from './AboutFull.module.css';
-import uslugiImg from '../../assets/uslugi.jpg';
+import uslugiImg from '../../assets/uslugi.webp';
 import Card from '../ui/Card/Card';
 import PageBanner from '../ui/PageBanner/PageBanner';
 
