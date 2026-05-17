@@ -14,8 +14,13 @@ type Props = {
 };
 
 type ContactErrorResponse = {
+  ok?: false;
   errors?: Record<string, string>;
   error?: string;
+};
+
+type ContactSuccessResponse = {
+  ok?: boolean;
 };
 
 export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
@@ -60,8 +65,9 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
         }),
       });
 
-      if (!response.ok) {
-        const payload = await parseErrorResponse(response);
+      const payload = await parseResponse(response);
+
+      if (!response.ok || payload.ok !== true) {
         setToastMessage(getErrorMessage(payload));
         return;
       }
@@ -182,7 +188,7 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
   );
 }
 
-async function parseErrorResponse(response: Response): Promise<ContactErrorResponse> {
+async function parseResponse(response: Response): Promise<ContactErrorResponse | ContactSuccessResponse> {
   try {
     return await response.json();
   } catch {
@@ -190,10 +196,14 @@ async function parseErrorResponse(response: Response): Promise<ContactErrorRespo
   }
 }
 
-function getErrorMessage(payload: ContactErrorResponse) {
-  if (payload.errors) {
+function getErrorMessage(payload: ContactErrorResponse | ContactSuccessResponse) {
+  if ('errors' in payload && payload.errors) {
     return Object.values(payload.errors)[0] || 'Проверьте данные формы.';
   }
 
-  return payload.error || 'Не удалось отправить заявку. Попробуйте позже.';
+  if ('error' in payload && payload.error) {
+    return payload.error;
+  }
+
+  return 'Не удалось отправить заявку. Попробуйте позже.';
 }
