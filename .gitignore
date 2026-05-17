@@ -7,14 +7,47 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependencies / build artefacts
+# Dependencies
 node_modules
+
+# Build artefacts
 dist
 dist-ssr
 .next
-*.local
+out
 coverage
 .vite
+.turbo
+.vercel
+.netlify
+.cache
+*.tsbuildinfo
+*.eslintcache
+*.stylelintcache
+
+# Local dev server outputs
+next.dev*.log
+next.start*.log
+next-dev*.log
+vite.*.log
+
+# Local source materials / raw originals
+excursions/
+
+# Temporary files
+tmp
+temp
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# Reports
+lighthouse*.html
+lighthouse*.json
+bundle-analysis/
+playwright-report/
+test-results/
 
 # Editor / OS
 .vscode/*
