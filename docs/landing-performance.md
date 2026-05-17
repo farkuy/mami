@@ -51,7 +51,7 @@ These notes are project guidance for keeping this tourist-guide landing site qui
 Before shipping performance-sensitive changes:
 
 - Run `npm run build`.
-- Check the production preview with `npm run preview` when visual behavior changed.
+- Check the production server with `npm run start` when visual behavior changed.
 - Inspect the first viewport on mobile width.
 - Confirm no large below-the-fold image is loaded eagerly.
 - Confirm contact paths still work: phone, messenger, email, and form.

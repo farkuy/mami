@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Hero.module.css';
-import homeImg from '../../assets/home.jpg';
+import homeHeroImg from '../../assets/home-hero.jpg';
 
 const tags = [
   {
@@ -50,7 +51,18 @@ const tags = [
 
 export default function Hero() {
   return (
-    <section className={styles.hero} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url(${homeImg})` }}>
+    <section className={styles.hero}>
+      <Image
+        src={homeHeroImg}
+        alt=""
+        fill
+        priority
+        placeholder="blur"
+        sizes="100vw"
+        className={styles.bgImage}
+        aria-hidden="true"
+      />
+      <div className={styles.overlay} aria-hidden="true" />
       <div className={styles.content}>
         <h1 className={styles.title}>
           Откройте Нижний Новгород с&nbsp;персональным гидом
@@ -61,7 +73,7 @@ export default function Hero() {
         </p>
         <div className={styles.tags}>
           {tags.map((t) => (
-            <Link key={t.label} to={t.to} className={styles.tag}>
+            <Link key={t.label} href={t.to} className={styles.tag}>
               <span className={styles.tagIcon}>{t.icon}</span>
               {t.label}
             </Link>

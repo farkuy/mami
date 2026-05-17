@@ -2,7 +2,7 @@ const IMAGE_CACHE = 'mami-images-v1';
 const IMAGE_EXT = /\.(?:jpg|jpeg|png|webp|avif|gif|svg)(?:\?|$)/i;
 const IMAGE_HOSTS = ['images.unsplash.com'];
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', () => {
   self.skipWaiting();
 });
 

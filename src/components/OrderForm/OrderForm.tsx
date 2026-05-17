@@ -1,10 +1,12 @@
+'use client';
+
 import { type FormEvent, useEffect, useId, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import { contacts } from '../../config/contacts';
 import Button from '../ui/Button/Button';
 import styles from './OrderForm.module.css';
 
-const CONTACT_EMAIL = 'bogdasovanton83@gmail.com';
-const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || 'http://localhost:3001/api/contact';
+const CONTACT_API_URL = process.env.NEXT_PUBLIC_CONTACT_API_URL || 'http://localhost:3001/api/contact';
 
 type Props = {
   tourName?: string;
@@ -12,8 +14,13 @@ type Props = {
 };
 
 type ContactErrorResponse = {
+  ok?: false;
   errors?: Record<string, string>;
   error?: string;
+};
+
+type ContactSuccessResponse = {
+  ok?: boolean;
 };
 
 export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
@@ -58,15 +65,16 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
         }),
       });
 
-      if (!response.ok) {
-        const payload = await parseErrorResponse(response);
+      const payload = await parseResponse(response);
+
+      if (!response.ok || payload.ok !== true) {
         setToastMessage(getErrorMessage(payload));
         return;
       }
 
       setSubmitted(true);
     } catch {
-      setToastMessage(`Не удалось отправить заявку. Напишите напрямую на ${CONTACT_EMAIL}.`);
+      setToastMessage(`Не удалось отправить заявку. Напишите напрямую на ${contacts.email}.`);
     } finally {
       setIsSubmitting(false);
     }
@@ -149,11 +157,11 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
         />
         <span>
           Соглашаюсь с{' '}
-          <Link to="/privacy" className={styles.consentLink}>
+          <Link href="/privacy" className={styles.consentLink}>
             политикой конфиденциальности
           </Link>{' '}
           и{' '}
-          <Link to="/data-policy" className={styles.consentLink}>
+          <Link href="/data-policy" className={styles.consentLink}>
             обработкой персональных данных
           </Link>
         </span>
@@ -180,7 +188,7 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
   );
 }
 
-async function parseErrorResponse(response: Response): Promise<ContactErrorResponse> {
+async function parseResponse(response: Response): Promise<ContactErrorResponse | ContactSuccessResponse> {
   try {
     return await response.json();
   } catch {
@@ -188,10 +196,14 @@ async function parseErrorResponse(response: Response): Promise<ContactErrorRespo
   }
 }
 
-function getErrorMessage(payload: ContactErrorResponse) {
-  if (payload.errors) {
+function getErrorMessage(payload: ContactErrorResponse | ContactSuccessResponse) {
+  if ('errors' in payload && payload.errors) {
     return Object.values(payload.errors)[0] || 'Проверьте данные формы.';
   }
 
-  return payload.error || 'Не удалось отправить заявку. Попробуйте позже.';
+  if ('error' in payload && payload.error) {
+    return payload.error;
+  }
+
+  return 'Не удалось отправить заявку. Попробуйте позже.';
 }

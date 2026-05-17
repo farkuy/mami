@@ -1,20 +1,35 @@
-import { useEffect, useState, useCallback } from 'react';
-import styles from './ReviewsGallery.module.css';
+'use client';
+
+import { useCallback, useEffect, useState } from 'react';
 import SmartImage from '../ui/SmartImage/SmartImage';
+import rw1 from '../../assets/reviews/rw1.jpg';
+import rw3 from '../../assets/reviews/rw3.jpg';
+import rw4 from '../../assets/reviews/rw4.jpg';
+import rw5 from '../../assets/reviews/rw5.jpg';
+import rw6 from '../../assets/reviews/rw6.jpg';
+import rw7 from '../../assets/reviews/rw7.jpg';
+import rw8 from '../../assets/reviews/rw8.jpg';
+import rw9 from '../../assets/reviews/rw9.jpg';
+import rw10 from '../../assets/reviews/rw10.jpg';
+import rw11 from '../../assets/reviews/rw11.jpg';
+import rw12 from '../../assets/reviews/rw12.jpg';
+import rw13 from '../../assets/reviews/rw13.jpg';
+import styles from './ReviewsGallery.module.css';
 
-const modules = import.meta.glob('../../assets/reviews/*.{jpg,jpeg,png,webp}', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-}) as Record<string, string>;
-
-const images = Object.entries(modules)
-  .sort(([a], [b]) => {
-    const na = parseInt(a.match(/rw(\d+)/)?.[1] ?? '0', 10);
-    const nb = parseInt(b.match(/rw(\d+)/)?.[1] ?? '0', 10);
-    return na - nb;
-  })
-  .map(([path, src], i) => ({ src, alt: `Отзыв ${i + 1}`, key: path }));
+const images = [
+  rw1,
+  rw3,
+  rw4,
+  rw5,
+  rw6,
+  rw7,
+  rw8,
+  rw9,
+  rw10,
+  rw11,
+  rw12,
+  rw13,
+].map((src, i) => ({ src, alt: `Отзыв ${i + 1}`, key: `review-${i + 1}` }));
 
 export default function ReviewsGallery() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -76,7 +91,7 @@ export default function ReviewsGallery() {
             onClick={(e) => { e.stopPropagation(); close(); }}
             aria-label="Закрыть"
           >
-            ×
+            x
           </button>
           <button
             type="button"

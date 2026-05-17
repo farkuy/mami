@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import { contacts } from '../../config/contacts';
+import { contacts } from '@/config/contacts';
 
 const TelegramIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

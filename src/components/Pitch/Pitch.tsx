@@ -1,7 +1,7 @@
 import styles from './Pitch.module.css';
 import Button from '../ui/Button/Button';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import avatarImg from '../../assets/meet1.jpg';
+import avatarImg from '../../assets/guide-portrait.jpg';
 
 export default function Pitch() {
   return (

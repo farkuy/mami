@@ -1,8 +1,10 @@
+'use client';
+
 import { useState } from 'react';
 import styles from './Meet.module.css';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import meet1 from '../../assets/meet1.jpg';
-import meet2 from '../../assets/meet2.jpg';
+import meet1 from '../../assets/meet1.webp';
+import meet2 from '../../assets/meet2.webp';
 
 const photos = [meet1, meet2];
 

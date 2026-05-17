@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import { contacts } from '@/config/contacts';
+import { navItems } from '@/config/navigation';
 import styles from './Footer.module.css';
-import { navItems } from '../../config/navigation';
-import { contacts } from '../../config/contacts';
 
 export default function Footer() {
   return (
@@ -19,7 +19,7 @@ export default function Footer() {
           <p className={styles.colTitle}>Навигация</p>
           <div className={styles.links}>
             {navItems.map((item) => (
-              <Link key={item.to} to={item.to} className={styles.link}>
+              <Link key={item.to} href={item.to} className={styles.link}>
                 {item.label}
               </Link>
             ))}
@@ -56,10 +56,10 @@ export default function Footer() {
         <div className={`container ${styles.bottom}`}>
           <span>&copy; {new Date().getFullYear()} НижнийГид. Все права защищены.</span>
           <div className={styles.bottomLinks}>
-            <Link to="/privacy" className={styles.bottomLink}>
+            <Link href="/privacy" className={styles.bottomLink}>
               Политика конфиденциальности
             </Link>
-            <Link to="/data-policy" className={styles.bottomLink}>
+            <Link href="/data-policy" className={styles.bottomLink}>
               Обработка персональных данных
             </Link>
           </div>

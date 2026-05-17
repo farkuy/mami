@@ -1,5 +1,5 @@
 import styles from './Privacy.module.css';
-import privacyImg from '../../assets/excursions/city/mysticism.jpg';
+import privacyImg from '../../assets/excursions/city/mysticism.webp';
 import PageBanner from '../ui/PageBanner/PageBanner';
 import { contacts } from '../../config/contacts';
 

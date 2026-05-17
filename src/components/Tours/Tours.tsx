@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import styles from './Tours.module.css';
 import Card from '../ui/Card/Card';
 import PageBanner from '../ui/PageBanner/PageBanner';
@@ -26,7 +26,7 @@ export default function Tours() {
 
             <div className={styles.list}>
               {getToursByGroup(group.id).map((tour) => (
-                <Link key={tour.slug} to={`/tours/${tour.slug}`} className={styles.rowLink}>
+                <Link key={tour.slug} href={`/tours/${tour.slug}`} className={styles.rowLink}>
                   <Card as="article" variant="media" className={styles.row}>
                     <SmartImage
                       className={styles.image}

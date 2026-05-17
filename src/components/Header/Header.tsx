@@ -1,15 +1,18 @@
-import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import styles from './Header.module.css';
-import { navItems } from '../../config/navigation';
-import { contacts } from '../../config/contacts';
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { contacts } from '@/config/contacts';
+import { navItems } from '@/config/navigation';
 import Messengers from './Messengers';
+import styles from './Header.module.css';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -18,47 +21,30 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [location]);
-
   const showTransparent = isHome && !scrolled;
 
   return (
     <header className={`${styles.header} ${showTransparent ? '' : styles.scrolled}`}>
       <div className={`container ${styles.inner}`}>
-        <Link to="/" className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           НижнийГид
         </Link>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
-          {navItems.map((item) =>
-            item.to.startsWith('/#') ? (
+          {navItems.map((item) => {
+            const isActive = pathname === item.to;
+
+            return (
               <Link
                 key={item.to}
-                to={item.to}
-                className={styles.navLink}
+                href={item.to}
+                className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
-            ) : (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end
-                className={({ isActive }) =>
-                  `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
-                }
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </NavLink>
-            )
-          )}
+            );
+          })}
         </nav>
 
         <div className={styles.contacts}>
@@ -75,6 +61,8 @@ export default function Header() {
           className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Меню"
+          aria-expanded={menuOpen}
+          type="button"
         >
           <span className={styles.burgerLine} />
           <span className={styles.burgerLine} />

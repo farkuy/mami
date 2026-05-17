@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import styles from './ToursPreview.module.css';
 import Card from '../ui/Card/Card';
 import Button from '../ui/Button/Button';
@@ -58,7 +58,7 @@ export default function ToursPreview() {
           ))}
         </div>
         <div className={styles.more}>
-          <Button as={Link} to="/tours">
+          <Button as={Link} href="/tours">
             Все экскурсии
           </Button>
         </div>

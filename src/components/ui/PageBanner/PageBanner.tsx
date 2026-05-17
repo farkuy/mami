@@ -1,8 +1,9 @@
 import styles from './PageBanner.module.css';
 import SmartImage from '../SmartImage/SmartImage';
+import type { StaticImageData } from 'next/image';
 
 type Props = {
-  image: string;
+  image: string | StaticImageData;
   imageAlt: string;
   kicker: string;
   title: string;
@@ -30,6 +31,9 @@ export default function PageBanner({
         alt={imageAlt}
         className={imageClass}
         loading={eager ? 'eager' : 'lazy'}
+        priority={eager}
+        fetchPriority={eager ? 'high' : 'auto'}
+        sizes="100vw"
       />
       <div className={styles.overlay} />
       <div className={`container ${styles.content}`}>

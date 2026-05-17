@@ -2,10 +2,10 @@
 
 ## Что сделано
 
-- Проверен перенос `OrderForm` в `next/src/components/OrderForm/OrderForm.tsx`.
+- Проверен перенос `OrderForm` в `src/components/OrderForm/OrderForm.tsx`.
 - Компонент оставлен client component через `'use client'`, потому что использует state, effect и отправку формы.
 - Ссылки на политику и обработку данных работают через `next/link`.
-- Email для fallback-сообщения берется из `next/src/config/contacts.ts`.
+- Email для fallback-сообщения берется из `src/config/contacts.ts`.
 - URL backend берется из `NEXT_PUBLIC_CONTACT_API_URL`, с локальным fallback `http://localhost:3001/api/contact`.
 - В `.env.example` добавлена переменная `NEXT_PUBLIC_CONTACT_API_URL`.
 - Обработка ответа backend проверяет успешный контракт `{ ok: true }` и показывает серверные `errors` или `error` в toast.

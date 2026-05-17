@@ -2,7 +2,7 @@ import styles from './Reviews.module.css';
 import PageBanner from '../ui/PageBanner/PageBanner';
 import ReviewCard from '../ReviewCard/ReviewCard';
 import { reviews } from '../../data/reviews';
-import reviewsImg from '../../assets/rew.jpg';
+import reviewsImg from '../../assets/rew.webp';
 
 export default function Reviews() {
   return (

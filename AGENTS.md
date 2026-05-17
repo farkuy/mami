@@ -2,7 +2,7 @@
 
 ## Project Context
 
-This repository contains a React/Vite website for a private tourist guide in Nizhny Novgorod. The site presents excursions, guide information, reviews, payment/legal pages, and contact options for booking or asking questions.
+This repository contains a Next.js website for a private tourist guide in Nizhny Novgorod. The site presents excursions, guide information, reviews, payment/legal pages, and contact options for booking or asking questions.
 
 Visitors should be able to contact the guide by phone, messenger, and email. Keep email contact support visible and functional when changing contact blocks, forms, headers, footers, or booking flows. Shared contact data belongs in `src/config/contacts.ts` instead of being hardcoded in components.
 
@@ -15,10 +15,9 @@ Visitors should be able to contact the guide by phone, messenger, and email. Kee
 
 ## Tech Stack
 
-- Vite
+- Next.js App Router
 - React 19
 - TypeScript
-- React Router
 - CSS Modules
 - Static assets in `src/assets` and `public`
 
@@ -29,12 +28,12 @@ npm install
 npm run dev
 npm run build
 npm run lint
-npm run preview
+npm run start
 ```
 
 ## Code Guidelines
 
-- Follow the existing component structure under `src/components`, `src/pages`, `src/config`, and `src/data`.
+- Follow the existing component structure under `app`, `src/components`, `src/config`, and `src/data`.
 - Prefer small, focused React components with typed props.
 - Use CSS Modules for component styles.
 - Avoid large UI libraries unless there is a clear product need.

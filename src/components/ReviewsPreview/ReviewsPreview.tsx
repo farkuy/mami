@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import styles from './ReviewsPreview.module.css';
 import Button from '../ui/Button/Button';
 import ReviewCard from '../ReviewCard/ReviewCard';
@@ -15,7 +15,7 @@ export default function ReviewsPreview() {
           ))}
         </div>
         <div className={styles.more}>
-          <Button as={Link} to="/reviews">
+          <Button as={Link} href="/reviews">
             Все отзывы
           </Button>
         </div>
