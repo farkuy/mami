@@ -1,9 +1,9 @@
 import overviewImg from '../assets/excursions/overview.webp';
 import kremlinImg from '../assets/excursions/kremlin.webp';
-import children1Img from '../assets/excursions/children1.webp';
-import children2Img from '../assets/excursions/children2.webp';
 import children3Img from '../assets/excursions/children3.webp';
 import children4Img from '../assets/excursions/children4.webp';
+import childrenKremlImg from '../assets/excursions/children/zames-kreml.webp';
+import childrenObzorImg from '../assets/excursions/children/zames-obzor.webp';
 import arrowImg from '../assets/excursions/city/arrow.webp';
 import detailImg from '../assets/excursions/city/detail.webp';
 import eveningImg from '../assets/excursions/city/evening.webp';
@@ -19,6 +19,7 @@ import regionBogorodskImg from '../assets/excursions/region/bogorodsk-vorsma-pav
 import regionBoldinoImg from '../assets/excursions/region/bolshoe-boldino.webp';
 import regionChkalovskImg from '../assets/excursions/region/chkalovsk-balakhna-purekh-katunki.webp';
 import regionDiveevoImg from '../assets/excursions/region/diveevo.webp';
+import regionDzerzhinskImg from '../assets/excursions/region/dzerzhinsk-volodarsk.webp';
 import regionGorodetsImg from '../assets/excursions/region/gorodets.webp';
 import regionMakaryevskyImg from '../assets/excursions/region/makaryevsky-monastery-mokhovye-gory.webp';
 import regionSemenovImg from '../assets/excursions/region/semenov.webp';
@@ -365,7 +366,7 @@ export const tours: Tour[] = [
     name: '«Городские легенды»',
     shortDescription:
       'Обзорная экскурсия по Нижнему Новгороду с элементами интерактива. Знакомство с историческим центром, яркие факты, удивительные городские истории и лучшие смотровые площадки.',
-    image: children1Img,
+    image: childrenObzorImg,
     duration: '3 ч. / 4 ч.',
     price: 'от 9 000 ₽',
     format: 'Автобус / минивен / авто, с элементами интерактива',
@@ -653,7 +654,7 @@ export const tours: Tour[] = [
     name: 'Экскурсия в Дзержинск и Володарск из Нижнего Новгорода',
     shortDescription:
       'Дзержинск - город советской мечты, столица химии и мозаик Нижегородской области. Володарск хранит купеческую и мукомольную историю региона конца XIX - начала XX века.',
-    image: arrowImg,
+    image: regionDzerzhinskImg,
     duration: 'По договоренности',
     price: 'Рассчитывается индивидуально',
     format: 'Выездная авто-пешеходная экскурсия',
@@ -682,7 +683,7 @@ export const tours: Tour[] = [
     name: '«Загадки древней крепости»',
     shortDescription:
       'Интерактивная экскурсия по Нижегородскому Кремлю для детей. Ребята увидят крепость глазами нападавших и защитников, узнают легенды и тайны, пройдут императорскими дорогами Романовых.',
-    image: children2Img,
+    image: childrenKremlImg,
     duration: '2 ч.',
     price: 'от 6 000 ₽',
     format: 'Пешая, интерактивная, для детей',
