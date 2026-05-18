@@ -32,7 +32,7 @@ next-dev*.log
 vite.*.log
 
 # Local source materials / raw originals
-excursions/
+/excursions/
 
 # Temporary files
 tmp
