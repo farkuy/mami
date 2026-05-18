@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { absoluteUrl } from '@/config/seo';
 import { tours } from '@/data/tours';
 
+export const dynamic = 'force-static';
+
 const staticRoutes = [
   {
     path: '/',
