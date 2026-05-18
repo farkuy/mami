@@ -12,6 +12,10 @@ const staticRoutes = [
     priority: 0.9,
   },
   {
+    path: '/souvenirs',
+    priority: 0.6,
+  },
+  {
     path: '/about',
     priority: 0.7,
   },

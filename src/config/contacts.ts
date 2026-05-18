@@ -3,7 +3,7 @@ export const contacts = {
     display: '+7 (950) 350-73-03',
     tel: '+79503507303',
   },
-  email: 'bogdasovanton83@gmail.com',
+  email: 'ibogdashova@yandex.ru',
   messengers: {
     telegram: {
       label: 'Написать в Telegram',
