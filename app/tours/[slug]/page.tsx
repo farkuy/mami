@@ -71,6 +71,18 @@ export default async function TourPage({ params }: Props) {
             {tour.fullDescription.map((p, i) => (
               <p key={i} className={styles.paragraph}>{p}</p>
             ))}
+            {tour.alternativeRoutes && tour.alternativeRoutes.length > 0 && (
+              <div className={styles.routeBox}>
+                {tour.alternativeRoutesTitle && (
+                  <h3 className={styles.routeTitle}>{tour.alternativeRoutesTitle}</h3>
+                )}
+                <ol className={styles.routeList}>
+                  {tour.alternativeRoutes.map((route, i) => (
+                    <li key={i}>{route}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
           </section>
 
           {tour.highlights && tour.highlights.length > 0 && (
