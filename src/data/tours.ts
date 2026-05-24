@@ -34,6 +34,7 @@ export type Tour = {
   group: TourGroupId;
   name: string;
   shortDescription: string;
+  shortDescriptionHighlights?: string[];
   image: string | StaticImageData;
   duration: string;
   price: string;
@@ -713,6 +714,7 @@ export const tours: Tour[] = [
     name: '«Тайны нищей Миллионки и купеческой Рождественской»',
     shortDescription:
       'Интерактивная экскурсия по самой богатой и самой бедной улицам города плюс мастер-класс по созданию нижегородского сувенира: керамический колокольчик, расписной пряник или фигурка.',
+    shortDescriptionHighlights: ['Интерактивная экскурсия', 'плюс мастер-класс'],
     image: children3Img,
     duration: '1 ч. экскурсия + 1 ч. мастер-класс',
     price: 'от 1 100 ₽ / чел. (группа от 30 чел.)',
@@ -736,6 +738,7 @@ export const tours: Tour[] = [
     name: '«Мастеровой Нижний Новгород»',
     shortDescription:
       'Интерактивная прогулка по Кремлю с рассказом о башнях, легендах и нижегородских промыслах, а затем - мастер-класс в атмосферной мастерской.',
+    shortDescriptionHighlights: ['Интерактивная прогулка по Кремлю', 'мастер-класс'],
     image: children4Img,
     duration: '1,5 ч. экскурсия + 1 ч. мастер-класс',
     price: 'от 1300 ₽ / чел для (группа 25 чел.)',

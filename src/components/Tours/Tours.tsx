@@ -6,6 +6,26 @@ import SmartImage from '../ui/SmartImage/SmartImage';
 import { tourGroups, getToursByGroup, tours } from '../../data/tours';
 import { souvenirsPage } from '../../data/souvenirs';
 
+function renderDescription(text: string, highlights: string[] = []) {
+  if (highlights.length === 0) {
+    return text;
+  }
+
+  const pattern = new RegExp(`(${highlights.map((item) => item.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
+
+  return text.split(pattern).map((part, index) => {
+    if (!highlights.includes(part)) {
+      return part;
+    }
+
+    return (
+      <strong key={`${part}-${index}`} className={styles.descriptionAccent}>
+        {part}
+      </strong>
+    );
+  });
+}
+
 export default function Tours() {
   return (
     <section id="tours" className={styles.tours}>
@@ -37,7 +57,9 @@ export default function Tours() {
                     />
                     <div className={styles.body}>
                       <h4 className={styles.name}>{tour.name}</h4>
-                      <p className={styles.description}>{tour.shortDescription}</p>
+                      <p className={styles.description}>
+                        {renderDescription(tour.shortDescription, tour.shortDescriptionHighlights)}
+                      </p>
                       <div className={styles.meta}>
                         {tour?.duration && <span className={styles.duration}>{tour.duration}</span>}
                         <span className={styles.more}>Подробнее →</span>

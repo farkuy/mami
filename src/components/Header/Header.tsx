@@ -27,7 +27,7 @@ export default function Header() {
     <header className={`${styles.header} ${showTransparent ? '' : styles.scrolled}`}>
       <div className={`container ${styles.inner}`}>
         <Link href="/" className={styles.logo}>
-          Нижний Новгород: Открой Свой
+          Нижний Новгород: <span className={styles.logoBreak}>Открой Свой</span>
         </Link>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>

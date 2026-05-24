@@ -80,6 +80,11 @@
   line-height: 1.6;
 }
 
+.descriptionAccent {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
 .meta {
   display: flex;
   flex-wrap: wrap;

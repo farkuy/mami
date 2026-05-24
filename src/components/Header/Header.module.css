@@ -26,11 +26,19 @@
 
 .logo {
   justify-self: start;
+  min-width: 0;
+  max-width: 100%;
   font-size: 1.25rem;
   font-weight: 700;
+  line-height: 1.15;
   color: #fff;
   letter-spacing: 0;
   transition: color 0.3s ease;
+  overflow-wrap: anywhere;
+}
+
+.logoBreak {
+  white-space: nowrap;
 }
 
 .scrolled .logo {
@@ -179,7 +187,7 @@
 
 @media (max-width: 768px) {
   .inner {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 12px;
   }
 
@@ -222,7 +230,7 @@
   }
 
   .contacts {
-    justify-self: center;
+    justify-self: end;
     gap: 6px;
   }
 
@@ -238,11 +246,15 @@
 
 @media (max-width: 560px) {
   .inner {
-    gap: 10px;
+    gap: 8px;
   }
 
   .logo {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
+  }
+
+  .logoBreak {
+    display: block;
   }
 
   .phone {
@@ -253,5 +265,15 @@
   .phoneIcon {
     width: 22px;
     height: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo {
+    font-size: 0.9rem;
+  }
+
+  .contacts {
+    gap: 2px;
   }
 }
