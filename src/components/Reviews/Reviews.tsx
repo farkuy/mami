@@ -2,7 +2,7 @@ import styles from './Reviews.module.css';
 import PageBanner from '../ui/PageBanner/PageBanner';
 import ReviewCard from '../ReviewCard/ReviewCard';
 import { reviews } from '../../data/reviews';
-import reviewsImg from '../../assets/rew.webp';
+import reviewsImg from '../../assets/rewie.webp';
 
 export default function Reviews() {
   return (
@@ -10,7 +10,7 @@ export default function Reviews() {
       <PageBanner
         image={reviewsImg}
         imageAlt="Отзывы наших гостей"
-        imagePosition="center-15"
+        imagePosition="center-60"
         kicker="Отзывы"
         title="Что говорят наши гости"
         lead="Живые впечатления после экскурсий по Нижнему Новгороду - от индивидуальных прогулок до семейных и корпоративных туров."

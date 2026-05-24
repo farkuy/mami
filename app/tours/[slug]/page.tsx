@@ -15,6 +15,30 @@ type Props = {
   }>;
 };
 
+function renderTextWithLinks(text: string) {
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  const exactUrlPattern = /^https?:\/\/[^\s]+$/;
+  const parts = text.split(urlPattern);
+
+  return parts.map((part, index) => {
+    if (!exactUrlPattern.test(part)) {
+      return part;
+    }
+
+    return (
+      <a
+        key={`${part}-${index}`}
+        className={styles.textLink}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {part}
+      </a>
+    );
+  });
+}
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -48,6 +72,12 @@ export default async function TourPage({ params }: Props) {
     notFound();
   }
 
+  const facts = [
+    { label: 'Формат', value: tour.format },
+    { label: 'Продолжительность', value: tour.duration },
+    { label: 'Стоимость', value: tour.price, className: styles.price },
+  ].filter((fact) => fact.value);
+
   return (
     <div className={styles.page}>
       <JsonLd data={buildTourPageStructuredData(tour)} />
@@ -69,7 +99,9 @@ export default async function TourPage({ params }: Props) {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>О программе</h2>
             {tour.fullDescription.map((p, i) => (
-              <p key={i} className={styles.paragraph}>{p}</p>
+              <p key={i} className={styles.paragraph}>
+                {renderTextWithLinks(p)}
+              </p>
             ))}
             {tour.alternativeRoutes && tour.alternativeRoutes.length > 0 && (
               <div className={styles.routeBox}>
@@ -96,30 +128,32 @@ export default async function TourPage({ params }: Props) {
             </section>
           )}
 
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>В стоимость входит</h2>
-            <ul className={styles.list}>
-              {tour.included.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-            {tour.note && <p className={styles.note}>{tour.note}</p>}
-          </section>
+          {(tour.included.length > 0 || tour.note) && (
+            <section className={styles.section}>
+              {tour.included.length > 0 && (
+                <>
+                  <h2 className={styles.sectionTitle}>В стоимость входит</h2>
+                  <ul className={styles.list}>
+                    {tour.included.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {tour.note && <p className={styles.note}>{tour.note}</p>}
+            </section>
+          )}
 
-          <dl className={styles.facts}>
-            <div className={styles.fact}>
-              <dt>Формат</dt>
-              <dd>{tour.format}</dd>
-            </div>
-            <div className={styles.fact}>
-              <dt>Продолжительность</dt>
-              <dd>{tour.duration}</dd>
-            </div>
-            <div className={styles.fact}>
-              <dt>Стоимость</dt>
-              <dd className={styles.price}>{tour.price}</dd>
-            </div>
-          </dl>
+          {facts.length > 0 && (
+            <dl className={styles.facts}>
+              {facts.map((fact) => (
+                <div key={fact.label} className={styles.fact}>
+                  <dt>{fact.label}</dt>
+                  <dd className={fact.className}>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
 
           <TourOrderCta tourName={tour.name} className={styles.cta} />
         </article>

@@ -8,7 +8,7 @@ type Props = {
   kicker: string;
   title: string;
   lead: string;
-  imagePosition?: 'center' | 'center-15';
+  imagePosition?: 'center' | 'center-15' | 'center-60';
   eager?: boolean;
 };
 
@@ -22,7 +22,11 @@ export default function PageBanner({
   eager = true,
 }: Props) {
   const imageClass =
-    imagePosition === 'center-15' ? `${styles.image} ${styles.imageCenter15}` : styles.image;
+    imagePosition === 'center-15'
+      ? `${styles.image} ${styles.imageCenter15}`
+      : imagePosition === 'center-60'
+        ? `${styles.image} ${styles.imageCenter60}`
+        : styles.image;
 
   return (
     <div className={styles.banner}>

@@ -59,7 +59,7 @@ function buildTourNode(tour: Tour) {
         name: 'Стоимость',
         value: tour.price,
       },
-    ],
+    ].filter((property) => property.value),
   };
 }
 

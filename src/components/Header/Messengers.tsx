@@ -2,13 +2,38 @@ import styles from './Header.module.css';
 import { contacts } from '@/config/contacts';
 
 const TelegramIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" />
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="12" fill="#2AABEE" />
+    <g transform="translate(-0.75 0)">
+      <path
+        d="M18.02 7.48 6.12 12.06c-.45.17-.44.8.02.95l2.9.94 1.13 3.47c.15.45.72.57 1.03.21l1.63-1.9 2.95 2.17c.38.28.92.07 1.01-.39l2-9.39c.09-.43-.36-.8-.77-.64Zm-2.23 2.35-4.78 4.44-.18 1.74-.75-2.31 5.71-3.87Z"
+        fill="#fff"
+      />
+    </g>
+  </svg>
+);
+
+const MaxIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+    <defs>
+      <linearGradient id="maxGradient" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#32D8F5" />
+        <stop offset="0.5" stopColor="#2C43F1" />
+        <stop offset="1" stopColor="#B650E8" />
+      </linearGradient>
+    </defs>
+    <rect width="24" height="24" rx="5" fill="url(#maxGradient)" />
+    <g transform="translate(0.35 -0.05)">
+      <path
+        d="M16.96 7.1c-2.12-1.28-4.85-1.28-6.97-.02C7.88 8.33 6.58 10.65 6.68 13.1c.04.95.27 1.88.7 2.73l-.56 2.29c-.11.44.28.83.72.73l2.3-.54a6.28 6.28 0 0 0 6.99-.58c1.85-1.52 2.73-3.99 2.24-6.33a6.16 6.16 0 0 0-2.11-4.3Zm-1 8.54a4.1 4.1 0 0 1-4.95.38.97.97 0 0 0-.71-.12l-.84.2.2-.82a.98.98 0 0 0-.11-.72 4.14 4.14 0 0 1-.55-2.18 4.13 4.13 0 0 1 6.76-3.03 4.15 4.15 0 0 1 .2 6.29Z"
+        fill="#fff"
+      />
+    </g>
   </svg>
 );
 
 export default function Messengers() {
-  const { telegram } = contacts.messengers;
+  const { telegram, max } = contacts.messengers;
 
   return (
     <div className={styles.social}>
@@ -20,6 +45,15 @@ export default function Messengers() {
         rel="noopener noreferrer"
       >
         <TelegramIcon />
+      </a>
+      <a
+        href={max.href}
+        className={styles.socialLink}
+        aria-label={max.label}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <MaxIcon />
       </a>
     </div>
   );

@@ -24,6 +24,10 @@
   object-position: center 15%;
 }
 
+.imageCenter60 {
+  object-position: center 60%;
+}
+
 .overlay {
   position: absolute;
   inset: 0;

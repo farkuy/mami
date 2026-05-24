@@ -43,7 +43,7 @@ next/src/config/contacts.ts
 - `npm run lint` - успешно.
 - `npm run build` - успешно.
 - Dev server `http://127.0.0.1:3100` ответил `200`.
-- HTML содержит `НижнийГид`, футерный текст `Все права защищены` и email `guide@example.com`.
+- HTML содержит `Нижний Новгород: Открой Свой`, футерный текст `Все права защищены` и email `guide@example.com`.
 
 ## Статус
 

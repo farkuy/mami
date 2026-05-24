@@ -9,5 +9,9 @@ export const contacts = {
       label: 'Написать в Telegram',
       href: 'https://t.me/irisbogd',
     },
+    max: {
+      label: 'Написать в MAX',
+      href: 'https://max.ru/u/f9LHodD0cOIDCpIxCB0xSt5lGnK36qISANOmFtJ2c_BG-wLEkIaNTLN2Er4',
+    },
   },
 } as const;

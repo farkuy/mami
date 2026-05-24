@@ -1,7 +1,7 @@
 import Reviews from '@/components/Reviews/Reviews';
 import ReviewsGallery from '@/components/Reviews/ReviewsGallery';
 import { buildPageMetadata } from '@/config/seo';
-import reviewsImg from '@/assets/rew.webp';
+import reviewsImg from '@/assets/rewie.webp';
 
 export const metadata = buildPageMetadata({
   title: 'Отзывы об экскурсиях',

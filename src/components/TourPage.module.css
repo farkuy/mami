@@ -99,6 +99,18 @@
   margin-bottom: 14px;
 }
 
+.textLink {
+  color: var(--color-accent);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.textLink:hover {
+  color: var(--color-accent-dark);
+}
+
 .routeBox {
   margin-top: 24px;
   padding: 20px;

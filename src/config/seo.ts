@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { StaticImageData } from 'next/image';
 
-export const siteName = 'НижнийГид';
+export const siteName = 'Нижний Новгород: Открой Свой';
 
 export const siteDescription =
   'Персональные экскурсии по Нижнему Новгороду с частным гидом.';
