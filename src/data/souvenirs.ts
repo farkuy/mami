@@ -4,8 +4,14 @@ import matryoshkaImg from '../assets/souvenirs/souvenir-04.webp';
 import sweetsImg from '../assets/souvenirs/souvenir-05.webp';
 import filigreeImg from '../assets/souvenirs/souvenir-07.webp';
 import linenImg from '../assets/souvenirs/souvenir-08.webp';
+import boneCarvingImg from '../assets/souvenirs/souvenir-09.webp';
 import ornamentsImg from '../assets/souvenirs/souvenir-10.webp';
+import gorkySouvenirsImg from '../assets/souvenirs/souvenir-11.webp';
+import diveevoBalmImg from '../assets/souvenirs/souvenir-12.webp';
+import alcoholImg from '../assets/souvenirs/souvenir-13.webp';
 import knivesImg from '../assets/souvenirs/souvenir-14.webp';
+import fleaMarketImg from '../assets/souvenirs/souvenir-15.webp';
+import karmanQrImg from '../assets/souvenirs/souvenir-16.webp';
 import type { StaticImageData } from 'next/image';
 
 export type Souvenir = {
@@ -13,6 +19,10 @@ export type Souvenir = {
   text: string;
   place: string;
   image: StaticImageData;
+};
+
+export type SouvenirBonus = Souvenir & {
+  discount: string;
 };
 
 export const souvenirs: Souvenir[] = [
@@ -53,10 +63,34 @@ export const souvenirs: Souvenir[] = [
     image: linenImg,
   },
   {
+    title: 'Варнавинская резьба по кости',
+    text: 'Мини-скульптуры, предметы интерьера, женские гребни, серьги, кулоны и браслеты от фабрики «Варко».',
+    place: 'Магазин «Художественные промыслы», ул. Большая Покровская, 43.',
+    image: boneCarvingImg,
+  },
+  {
     title: 'Ёлочные игрушки «Ариэль»',
     text: 'Стеклянные шары и украшения с ручной росписью: хороший подарок даже вне новогоднего сезона.',
     place: 'Магазин при фабрике на шоссе Жиркомбината, 8а, лит. Б; лимитированные серии - по записи.',
     image: ornamentsImg,
+  },
+  {
+    title: '«Горькие» сувениры',
+    text: 'Сувениры, связанные с Максимом Горьким и городским именем Горький: от магнитов и открыток до фестивальной и кофейной темы.',
+    place: 'Ищите в сувенирных магазинах центра: с Горьким в городе связано более 40 мест.',
+    image: gorkySouvenirsImg,
+  },
+  {
+    title: 'Дивеевские бальзамы',
+    text: 'Безалкогольные оздоровительные напитки из дикорастущих трав, корений и плодов на основе природной воды.',
+    place: 'Есть во многих сувенирных магазинах; самый атмосферный вариант - привезти из поездки в Дивеево.',
+    image: diveevoBalmImg,
+  },
+  {
+    title: 'Нижегородский алкоголь',
+    text: 'Водка «Нижегородская история», «Узола» с хохломской темой, серия «Русская Эскадра» и настойки «Три старика».',
+    place: 'SPAR на ул. Большая Покровская, 15, и другие магазины сети.',
+    image: alcoholImg,
   },
   {
     title: 'Павловские и ворсменские ножи',
@@ -64,15 +98,29 @@ export const souvenirs: Souvenir[] = [
     place: 'Магазин «Художественные промыслы», ул. Большая Покровская, 43.',
     image: knivesImg,
   },
+  {
+    title: 'Блошиный рынок',
+    text: 'Исторические артефакты в центре города: старинные монеты, купюры, открытки, предметы быта и детали горьковской автомобильной истории.',
+    place: 'Улица Большая Покровская, сквер Свердлова. По субботам и воскресеньям с утра примерно до обеда.',
+    image: fleaMarketImg,
+  },
 ];
+
+export const souvenirsBonus: SouvenirBonus = {
+  title: 'Бонус в магазине «Карман»',
+  discount: '3%',
+  text: 'Магазин представляет широкий выбор оригинальных нижегородских сувениров - традиционных и современных, отражающих историю города и его сегодняшний день. Скидку можно получить по предъявлению QR-кода.',
+  place: 'Магазин «Карман», ул. Большая Покровская, 27, напротив Госбанка. Скидка по предъявлению QR-кода.',
+  image: karmanQrImg,
+};
 
 export const souvenirsPage = {
   title: 'Что привезти из Нижнего Новгорода',
   description:
-    'Сувениры и подарки с нижегородским характером: городецкие пряники, промыслы, сладости, текстиль, ёлочные игрушки и ножи.',
+    'Сувениры и подарки с нижегородским характером: городецкие пряники, промыслы, сладости, текстиль, бальзамы, ёлочные игрушки и ножи.',
   lead:
     'Собрали короткую шпаргалку по подаркам, которые действительно связаны с Нижним Новгородом и областью: вкусные, ремесленные, практичные и просто красивые.',
   note:
-    'И главное, что стоит увезти из Нижнего, - впечатления: виды Стрелки, Дятловых гор, волжский воздух и свои истории о городе.',
+    'И да, не забудьте: главное, что нужно привезти из Нижнего Новгорода, - это впечатления. Дорогие путешественники, успешной вам охоты за нижегородскими сувенирами и впечатлениями!',
   image: gingerbreadImg,
 };

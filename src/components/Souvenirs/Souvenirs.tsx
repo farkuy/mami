@@ -1,9 +1,15 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 import styles from './Souvenirs.module.css';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import { souvenirs, souvenirsPage } from '../../data/souvenirs';
+import Modal from '../ui/Modal/Modal';
+import { souvenirs, souvenirsBonus, souvenirsPage } from '../../data/souvenirs';
 
 export default function Souvenirs() {
+  const [qrOpen, setQrOpen] = useState(false);
+
   return (
     <main className={styles.page}>
       <div className="container">
@@ -34,7 +40,51 @@ export default function Souvenirs() {
             </article>
           ))}
         </section>
+
+        <aside className={styles.bonus} aria-labelledby="souvenirs-bonus-title">
+          <div className={styles.bonusContent}>
+            <span className={styles.bonusKicker}>Бонус гостям сайта</span>
+            <h2 id="souvenirs-bonus-title" className={styles.bonusTitle}>
+              {souvenirsBonus.title}
+            </h2>
+            <p className={styles.bonusText}>{souvenirsBonus.text}</p>
+            <p className={styles.bonusPlace}>{souvenirsBonus.place}</p>
+          </div>
+          <div className={styles.bonusBadge} aria-label={`Скидка ${souvenirsBonus.discount}`}>
+            <span>{souvenirsBonus.discount}</span>
+            <small>скидка</small>
+          </div>
+          <button
+            type="button"
+            className={styles.qrButton}
+            onClick={() => setQrOpen(true)}
+            aria-label="Открыть QR-код скидки в большом формате"
+          >
+            <SmartImage
+              className={styles.bonusImage}
+              src={souvenirsBonus.image}
+              alt="QR-код для скидки в магазине Карман"
+              loading="lazy"
+            />
+            <span className={styles.qrHint}>Увеличить</span>
+          </button>
+        </aside>
+
+        <p className={styles.note}>{souvenirsPage.note}</p>
       </div>
+
+      <Modal
+        open={qrOpen}
+        onClose={() => setQrOpen(false)}
+        title="Скидка в магазине «Карман»"
+        subtitle="Покажите QR-код в магазине на Большой Покровской, 27."
+      >
+        <SmartImage
+          className={styles.qrModalImage}
+          src={souvenirsBonus.image}
+          alt="QR-код скидки в магазине Карман"
+        />
+      </Modal>
     </main>
   );
 }
