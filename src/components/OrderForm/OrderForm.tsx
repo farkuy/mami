@@ -90,6 +90,7 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
         <div className={`${styles.field} ${styles.fieldDisabled}`}>
           <input
             id={`${formId}-tour`}
+            name="tourName"
             className={styles.input}
             type="text"
             value={tourName}
@@ -104,6 +105,7 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
       <div className={styles.field}>
         <input
           id={`${formId}-name`}
+          name="name"
           className={styles.input}
           type="text"
           placeholder=" "
@@ -121,6 +123,7 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
       <div className={styles.field}>
         <input
           id={`${formId}-email`}
+          name="email"
           className={styles.input}
           type="email"
           placeholder=" "
@@ -137,18 +140,20 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
       <div className={styles.field}>
         <textarea
           id={`${formId}-message`}
+          name="message"
           className={styles.textarea}
           placeholder=" "
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
         <label className={styles.label} htmlFor={`${formId}-message`}>
-          Расскажите, что вас интересует
+          Сообщение
         </label>
       </div>
 
       <label className={styles.consent}>
         <input
+          name="acceptedPolicy"
           className={styles.checkbox}
           type="checkbox"
           checked={acceptedPolicy}
@@ -156,14 +161,14 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
           required
         />
         <span>
-          Соглашаюсь с{' '}
+          Согласен(на) на обработку персональных данных для ответа на заявку и согласования экскурсии. Ознакомлен(а) с{' '}
           <Link href="/privacy" className={styles.consentLink}>
             политикой конфиденциальности
           </Link>{' '}
           и{' '}
           <Link href="/data-policy" className={styles.consentLink}>
-            обработкой персональных данных
-          </Link>
+            условиями обработки персональных данных
+          </Link>.
         </span>
       </label>
 
