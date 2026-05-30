@@ -114,7 +114,7 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
           autoComplete="name"
         />
         <label className={styles.label} htmlFor={`${formId}-name`}>
-          Ваше имя
+          ФИО
         </label>
       </div>
 
