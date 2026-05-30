@@ -3,6 +3,7 @@
 import { type FormEvent, useEffect, useId, useState } from 'react';
 import Link from 'next/link';
 import { contacts } from '../../config/contacts';
+import { personalDataConsentVersion } from '../../config/legal';
 import Button from '../ui/Button/Button';
 import styles from './OrderForm.module.css';
 
@@ -61,7 +62,9 @@ export default function OrderForm({ tourName, autoFocusFirst = false }: Props) {
           email,
           message,
           tourName,
-          acceptedPolicy,
+          acceptedPolicy: true,
+          consentVersion: personalDataConsentVersion,
+          submittedFrom: window.location.href,
         }),
       });
 
