@@ -43,27 +43,26 @@ export default function Souvenirs() {
 
         <aside className={styles.bonus} aria-labelledby="souvenirs-bonus-title">
           <div className={styles.bonusContent}>
-            <span className={styles.bonusKicker}>Бонус гостям сайта</span>
+            <span className={styles.bonusKicker}>Справочная информация</span>
             <h2 id="souvenirs-bonus-title" className={styles.bonusTitle}>
               {souvenirsBonus.title}
             </h2>
             <p className={styles.bonusText}>{souvenirsBonus.text}</p>
+            <p className={styles.discountNote}>
+              QR-код на скидку: {souvenirsBonus.discount}
+            </p>
             <p className={styles.bonusPlace}>{souvenirsBonus.place}</p>
-          </div>
-          <div className={styles.bonusBadge} aria-label={`Скидка ${souvenirsBonus.discount}`}>
-            <span>{souvenirsBonus.discount}</span>
-            <small>скидка</small>
           </div>
           <button
             type="button"
             className={styles.qrButton}
             onClick={() => setQrOpen(true)}
-            aria-label="Открыть QR-код скидки в большом формате"
+            aria-label="Открыть QR-код магазина Карман в большом формате"
           >
             <SmartImage
               className={styles.bonusImage}
               src={souvenirsBonus.image}
-              alt="QR-код для скидки в магазине Карман"
+              alt="QR-код магазина Карман"
               loading="lazy"
             />
             <span className={styles.qrHint}>Увеличить</span>
@@ -76,13 +75,13 @@ export default function Souvenirs() {
       <Modal
         open={qrOpen}
         onClose={() => setQrOpen(false)}
-        title="Скидка в магазине «Карман»"
-        subtitle="Покажите QR-код в магазине на Большой Покровской, 27."
+        title="QR-код магазина «Карман»"
+        subtitle="Условия скидки уточняйте в магазине на Большой Покровской, 27."
       >
         <SmartImage
           className={styles.qrModalImage}
           src={souvenirsBonus.image}
-          alt="QR-код скидки в магазине Карман"
+          alt="QR-код магазина Карман"
         />
       </Modal>
     </main>

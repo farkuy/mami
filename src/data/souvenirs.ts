@@ -8,7 +8,6 @@ import boneCarvingImg from '../assets/souvenirs/souvenir-09.webp';
 import ornamentsImg from '../assets/souvenirs/souvenir-10.webp';
 import gorkySouvenirsImg from '../assets/souvenirs/souvenir-11.webp';
 import diveevoBalmImg from '../assets/souvenirs/souvenir-12.webp';
-import alcoholImg from '../assets/souvenirs/souvenir-13.webp';
 import knivesImg from '../assets/souvenirs/souvenir-14.webp';
 import fleaMarketImg from '../assets/souvenirs/souvenir-15.webp';
 import karmanQrImg from '../assets/souvenirs/souvenir-16.webp';
@@ -101,10 +100,10 @@ export const souvenirs: Souvenir[] = [
 ];
 
 export const souvenirsBonus: SouvenirBonus = {
-  title: 'Бонус в магазине «Карман»',
+  title: 'Магазин «Карман» на Большой Покровской',
   discount: '3%',
-  text: 'Магазин представляет широкий выбор оригинальных нижегородских сувениров - традиционных и современных, отражающих историю города и его сегодняшний день. Скидку можно получить по предъявлению QR-кода.',
-  place: 'Магазин «Карман», ул. Большая Покровская, 27, напротив Госбанка. Скидка по предъявлению QR-кода.',
+  text: 'На Большой Покровской, 27 работает магазин «Карман» с нижегородскими сувенирами. По QR-коду магазин может предоставить скидку; условия уточняйте на месте.',
+  place: 'Адрес: ул. Большая Покровская, 27, напротив Госбанка.',
   image: karmanQrImg,
 };
 
