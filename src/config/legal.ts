@@ -8,5 +8,5 @@ export const siteDomain = 'SITE_DOMAIN_PLACEHOLDER';
 
 export const policyUpdatedAt = '2026-05-30';
 
-export const personalDataConsentVersion = 'personal-data-consent-v1';
-
+export const personalDataConsentVersion =
+  'Согласие на обработку персональных данных, редакция от 30.05.2026';
