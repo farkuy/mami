@@ -15,7 +15,7 @@ const services: Service[] = [
     title: 'Индивидуальный маршрут',
     description:
       'Составим персональный маршрут, порекомендуем лучшие туристические места, музеи и рестораны под ваши интересы.',
-    highlight: 'Бесплатно',
+    price: 'Бесплатно',
   },
   {
     title: 'Услуги аттестованного гида',
@@ -32,6 +32,7 @@ const services: Service[] = [
     title: 'Сопровождение на маршруте',
     description:
       'Гид рядом с вами на всех этапах программы - от встречи до завершения поездки, по вашему запросу.',
+    price: '1 500 ₽ / час',
   },
   {
     title: 'Аренда транспорта',
@@ -75,10 +76,10 @@ export default function AboutFull() {
                 <div className={styles.serviceHead}>
                   <h3 className={styles.serviceTitle}>{service.title}</h3>
                   {service.highlight && (
-                    <span className={styles.badge}>{service.highlight}</span>
+                    <div className={styles.serviceBadgeLine}><span className={styles.badge}>{service.highlight}</span></div>
                   )}
                   {service.price && (
-                    <span className={styles.price}>{service.price}</span>
+                    <div className={styles.serviceBadgeLine}><span className={styles.price}>{service.price}</span></div>
                   )}
                 </div>
                 <p className={styles.serviceText}>{service.description}</p>

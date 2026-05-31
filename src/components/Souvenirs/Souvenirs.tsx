@@ -1,15 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import styles from './Souvenirs.module.css';
 import SmartImage from '../ui/SmartImage/SmartImage';
-import Modal from '../ui/Modal/Modal';
-import { souvenirs, souvenirsBonus, souvenirsPage } from '../../data/souvenirs';
+import { souvenirs, souvenirsPage } from '../../data/souvenirs';
 
 export default function Souvenirs() {
-  const [qrOpen, setQrOpen] = useState(false);
-
   return (
     <main className={styles.page}>
       <div className="container">
@@ -41,49 +37,8 @@ export default function Souvenirs() {
           ))}
         </section>
 
-        <aside className={styles.bonus} aria-labelledby="souvenirs-bonus-title">
-          <div className={styles.bonusContent}>
-            <span className={styles.bonusKicker}>Справочная информация</span>
-            <h2 id="souvenirs-bonus-title" className={styles.bonusTitle}>
-              {souvenirsBonus.title}
-            </h2>
-            <p className={styles.bonusText}>{souvenirsBonus.text}</p>
-            <p className={styles.discountNote}>
-              QR-код на скидку: {souvenirsBonus.discount}
-            </p>
-            <p className={styles.bonusPlace}>{souvenirsBonus.place}</p>
-          </div>
-          <button
-            type="button"
-            className={styles.qrButton}
-            onClick={() => setQrOpen(true)}
-            aria-label="Открыть QR-код магазина Карман в большом формате"
-          >
-            <SmartImage
-              className={styles.bonusImage}
-              src={souvenirsBonus.image}
-              alt="QR-код магазина Карман"
-              loading="lazy"
-            />
-            <span className={styles.qrHint}>Увеличить</span>
-          </button>
-        </aside>
-
         <p className={styles.note}>{souvenirsPage.note}</p>
       </div>
-
-      <Modal
-        open={qrOpen}
-        onClose={() => setQrOpen(false)}
-        title="QR-код магазина «Карман»"
-        subtitle="Условия скидки уточняйте в магазине на Большой Покровской, 27."
-      >
-        <SmartImage
-          className={styles.qrModalImage}
-          src={souvenirsBonus.image}
-          alt="QR-код магазина Карман"
-        />
-      </Modal>
     </main>
   );
 }
